@@ -10,7 +10,7 @@ const Home = () => {
       className="h-screen w-full bg-gradient-to-b from-black via-black to-gray-800 home"
     >
       <div className="max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full px-4 md:flex-row">
-      <div className="small-screen hidden">
+        <div className="small-screen hidden">
           <img
             src={HeroImage}
             alt="profile"
@@ -19,12 +19,10 @@ const Home = () => {
         </div>
         <div className="flex flex-col justify-center h-full">
           <h2 className="text-4xl sm:text-7xl font-bold text-white">
-          "Hello there, I'm Abhishek Agnihotri, a master of both front-end and back-end development, forging digital solutions from mere ideas." 
+            "Hello there, I'm Abhishek Agnihotri, a master of both front-end and back-end development, forging digital solutions from mere ideas."
           </h2>
           <p className="text-white py-4 max-w-md">
-            I have 1.6 month of experience building blockchain websites and desgining software.
-            I love to work on web application using technologies like
-            React, Tailwind, Next JS , blockchain and Redux.
+            I love working on web applications using technologies like React, Tailwind, Next.js, blockchain, and Redux.
           </p>
 
           <div className="portfolio-btn">
@@ -48,7 +46,7 @@ const Home = () => {
             className="rounded-2xl mx-auto w-2/3 md:w-full"
           />
         </div>
-        
+
       </div>
     </div>
   );

@@ -1,28 +1,76 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const About = () => {
+  // State to track scroll direction
+  const [scrollDirection, setScrollDirection] = useState("up");
+
+  // Track the scroll position to detect direction
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setScrollDirection("down");
+      } else {
+        setScrollDirection("up");
+      }
+      lastScrollY = window.scrollY;
+    };
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div
       name="about"
-      className="w-full h-100 bg-gradient-to-b from-gray-800 to-black text-white about"
+      className="w-full h-100 bg-transparent text-white"
     >
       <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
         <div className="pb-8">
-          <p className="text-4xl font-bold inline border-b-4 border-gray-500">
+          <p
+            className={`text-4xl font-bold inline border-b-4 border-gray-500 transition-transform duration-700 ${
+              scrollDirection === "down" ? "translate-y-8" : "translate-y-0"
+            }`}
+          >
             About
           </p>
         </div>
 
-        <p className="text-xl mt-5">
-        I am a Full Stack developer, working in both, backend and frontend programming. Excited for improving my skills and learning new technologies. I'm open to learn and work with any web technology and currently doing job.
+        <p
+          className={`text-xl mt-5 transition-transform duration-700 ${
+            scrollDirection === "down" ? "translate-y-8" : "translate-y-0"
+          }`}
+        >
+          Oh hey there! I'm a frontend developer, and I make the web come alive
+          with some serious React, Next.js, and Redux magic. While I’m the{" "}
+          <strong>queen</strong> of frontend, I’ve got the backend chops too,
+          giving me that full-stack flair! <br /> <br />
+          I'm all about perfecting my skills, tackling new tech, and staying on
+          top of the latest trends. Let's make your website the hottest thing on
+          the internet, shall we?
         </p>
 
         <br />
 
-        <p className="text-xl">
-        I like to code matters from scratch and love the idea of bringing thoughts to life. Connect with me to get your project done. <br /> <br />
-        I value minimalistic designs, thoughtful branding of the content, and customer relatable experience. Let’s discover together how we can make your project convert better!<br /> <br />
-        I enjoy creating or redesigning a distinct identity for a product or service, get more traffic from search engine and social platforms.
+        <p
+          className={`text-xl transition-transform duration-700 ${
+            scrollDirection === "down" ? "translate-y-8" : "translate-y-0"
+          }`}
+        >
+          I'm the kind of developer who builds from scratch and loves turning
+          ideas into a vibrant reality. <br /> <br />
+          Let’s make your brand unforgettable, and give your customers an
+          experience that’ll keep them coming back. Because let’s be
+          honest—who doesn’t love a flawless design? Let's get your project to
+          go viral and stand out from the crowd! <br /> <br />
+          I'm here to transform your product’s identity and help you drive more
+          traffic with a solid design that people can't stop talking about.
         </p>
       </div>
     </div>

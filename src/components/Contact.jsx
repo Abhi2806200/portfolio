@@ -1,60 +1,62 @@
 import React from "react";
-
-//function for form reset
-function handleSubmit(e){
-  setTimeout(() => {
-    e.target.reset();
-  }, 3000);
-}
+import { motion } from "framer-motion"; // For animation
 
 const Contact = () => {
   return (
     <div
       name="contact"
-      className="contact w-full h-screen bg-gradient-to-b from-black to-gray-800 p-4 text-white"
+      className="contact w-full h-screen bg-transparent p-4 text-white"
     >
       <div className="flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full">
         <div className="pb-8">
           <p className="text-4xl font-bold inline border-b-4 border-gray-500">
             Contact
           </p>
-          <p className="py-6">Submit the form below to get in touch with me</p>
+          <p className="py-6">You can reach me via email or WhatsApp.</p>
         </div>
-        
-        <div className=" flex justify-center items-center">
-          <form
-            onSubmit={handleSubmit}
-            name="contact"
-            method="POST"
-            action="https://getform.io/f/34ab7c23-c59c-4776-855f-f141baad6512"
-            className=" flex flex-col w-full md:w-1/2"
-          >
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter your name"
-              required
-              className="p-2 bg-transparent border-2 rounded-md text-white focus:outline-none"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              required
-              className="my-4 p-2 bg-transparent border-2 rounded-md text-white focus:outline-none"
-            />
-            <textarea
-              name="message"
-              placeholder="Enter your message"
-              rows="10"
-              required
-              className="p-2 bg-transparent border-2 rounded-md text-white focus:outline-none"
-            ></textarea>
 
-            <button type="submit" className="text-white bg-gradient-to-b from-cyan-500 to-blue-500 px-6 py-3 my-8 mx-auto flex items-center rounded-md hover:scale-110 duration-300">
-              Send Message
-            </button>
-          </form>
+        <div className="flex flex-col justify-center items-center">
+          {/* Email and WhatsApp Section */}
+          <motion.div
+            className="flex flex-col items-center justify-center space-y-6"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeInOut" }}
+          >
+            {/* Email Section */}
+            <motion.div
+              className="text-xl md:text-2xl flex items-center space-x-3 hover:scale-105 transition-transform duration-300"
+              whileHover={{ scale: 1.1 }}
+            >
+              <span className="font-semibold">Email:</span>
+              <a
+                href="mailto:abhishekagni2806@gmail.com"
+                className="text-pink-500 hover:underline"
+              >
+                abhishekagni2806@gmail.com
+              </a>
+            </motion.div>
+
+            {/* WhatsApp Section */}
+            <motion.div
+              className="text-xl md:text-2xl flex items-center space-x-3 hover:scale-105 transition-transform duration-300"
+              whileHover={{ scale: 1.1 }}
+            >
+              <span className="font-semibold">WhatsApp:</span>
+              <a
+                href="https://wa.me/918219071272"
+                className="text-green-500 hover:underline"
+              >
+                +91 8219071272
+              </a>
+              {/* India Flag */}
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/1024px-Flag_of_India.svg.png"
+                alt="India Flag"
+                className="w-8 h-8 ml-2 rounded-full"
+              />
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </div>

@@ -1,0 +1,155 @@
+/* General Navbar Styles */
+.nav {
+  background-color: rgba(0, 0, 0, 0) !important; /* Ensure the navbar is fully transparent */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for subtle depth */
+  position: fixed; /* Ensure the navbar remains fixed at the top */
+  width: 100%;
+  transition: top 0.3s ease-in-out;
+  z-index: 50; /* Ensure the navbar is above other elements */
+}
+
+/* Logo animation */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Logo rotate effect when animateLogo is true */
+.animate-rotate {
+  animation: rotate 1s ease-in-out;
+}
+
+/* Navbar Links */
+.nav-links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  color: #fff; /* Ensure links are white for contrast */
+}
+
+.nav-links:hover {
+  color: #f0f0f0; /* Slight color change on hover */
+}
+
+/* Hover underline effect */
+.nav-links span {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #ff7eb3, #8a2be2);
+  transition: width 0.3s ease;
+}
+
+.nav-links:hover span {
+  width: 100%;
+}
+
+/* Link underline on hover */
+.link-underline {
+  text-decoration: none;
+  position: relative;
+}
+
+.link-underline-black {
+  color: black;
+  font-weight: bold;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  /* Mobile Navbar */
+  .nav {
+    background-color: rgba(0, 0, 0, 0.7); /* Slight background opacity for mobile */
+  }
+
+  /* Mobile Menu Links */
+  .mobile-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .nav-links li {
+    padding: 10px 0;
+    font-size: 20px;
+  }
+
+  .nav-links li a {
+    text-align: center;
+    color: white;
+  }
+
+  /* Mobile Navigation Animation */
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  /* Hover effects for mobile */
+  .nav-links li:hover {
+    color: #fca311;
+    transform: scale(1.1);
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+  /* Display the navbar flex on desktop */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Horizontal layout for desktop links */
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+  }
+
+  /* Ensure mobile menu does not appear on larger screens */
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* When scrolling up, show the navbar */
+.navbar-visible {
+  top: 0;
+  transition: top 0.3s ease-in-out;
+}
+
+/* When scrolling down, hide the navbar */
+.navbar-hidden {
+  top: -80px; /* Adjust to the height of your navbar */
+  transition: top 0.3s ease-in-out;
+}

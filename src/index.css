@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 
@@ -9,20 +9,55 @@
 @layer base {
   html {
     font-family: "Raleway", sans-serif;
+    background: linear-gradient(135deg, rgba(255, 51, 102, 0.6), rgba(0, 94, 184, 0.6));
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: textAnimation 10s infinite alternate;
+  }
+}
+
+@keyframes textAnimation {
+  0% {
+    color: rgba(255, 51, 102, 0.6);
+  }
+  50% {
+    color: rgba(0, 94, 184, 0.6);
+  }
+  100% {
+    color: rgba(0, 255, 255, 0.6);
   }
 }
 
 #root {
-  background: linear-gradient(black 25%, rgb(31, 41, 54) 58%, black 15%);
+  background: linear-gradient(135deg, rgba(0, 51, 102, 0.7), rgba(255, 51, 204, 0.7));
   min-height: 100vh;
+  position: relative;
+  animation: backgroundAnimation 15s ease-in-out infinite;
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background: linear-gradient(135deg, rgba(0, 51, 102, 0.7), rgba(255, 51, 204, 0.7));
+  }
+  50% {
+    background: linear-gradient(135deg, rgba(0, 94, 184, 0.7), rgba(0, 255, 255, 0.7));
+  }
+  100% {
+    background: linear-gradient(135deg, rgba(255, 51, 102, 0.7), rgba(0, 255, 255, 0.7));
+  }
 }
 
 body {
-  background: rgb(31, 41, 55);
+  background: rgba(31, 41, 55, 0.9);
+  color: white;
+  transition: background 0.5s ease;
 }
 
 .nav {
   z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 8px;
 }
 
 .link-underline {
@@ -36,7 +71,6 @@ body {
 }
 
 .link-underline-black {
-  /* background-image: linear-gradient(transparent, transparent), linear-gradient(#F2C, rgb(60, 34, 255)) */
   background-image: linear-gradient(transparent, transparent),
     linear-gradient(#000, #fff);
 }
@@ -56,17 +90,15 @@ body {
   margin-top: 12%;
 }
 
-
 .nav-links {
   text-underline-offset: 1rem;
 }
 
-
 @media screen and (max-width: 900px) {
-
   #root {
-    background: linear-gradient(rgb(31, 41, 55) 20%, black 20%, rgb(31, 41, 55) 65%, black 25%);
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.7), rgba(0, 94, 184, 0.7));
     min-height: 100vh;
+    animation: none;
   }
 
   .about,
@@ -104,15 +136,145 @@ body {
     font-size: 2.7rem;
     line-height: 3rem;
     margin-top: 7%;
+    color: white;
+    animation: textAnimation 5s infinite alternate;
   }
 
   .portfolio-btn {
     margin: auto;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+
+  .portfolio-btn:hover {
+    background: rgba(0, 94, 184, 0.8);
   }
 
   .px-12 {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+} */
 
+
+
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Raleway", sans-serif;
+    background: linear-gradient(135deg, rgba(255, 51, 102, 0.6), rgba(0, 94, 184, 0.6));
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: textAnimation 10s infinite alternate;
+  }
+}
+
+@keyframes textAnimation {
+  0% {
+    color: rgba(255, 51, 102, 0.6);
+  }
+  50% {
+    color: rgba(0, 94, 184, 0.6);
+  }
+  100% {
+    color: rgba(0, 255, 255, 0.6);
+  }
+}
+
+#root {
+  background: linear-gradient(135deg, rgba(0, 51, 102, 0.7), rgba(255, 51, 204, 0.7));
+  min-height: 100vh;
+  position: relative;
+  animation: backgroundAnimation 15s ease-in-out infinite;
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background: linear-gradient(135deg, rgba(0, 51, 102, 0.7), rgba(255, 51, 204, 0.7));
+  }
+  50% {
+    background: linear-gradient(135deg, rgba(0, 94, 184, 0.7), rgba(0, 255, 255, 0.7));
+  }
+  100% {
+    background: linear-gradient(135deg, rgba(255, 51, 102, 0.7), rgba(0, 255, 255, 0.7));
+  }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 900px) {
+  #root {
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.7), rgba(0, 94, 184, 0.7)); /* Maintain gradient on mobile */
+    min-height: 100vh;
+    animation: backgroundAnimation 15s ease-in-out infinite; /* Keep the animation for mobile */
+  }
+
+  .about,
+  .contact,
+  .portfolio,
+  .experience,
+  .home {
+    text-align: center;
+    height: 100%;
+  }
+
+  .about,
+  .portfolio,
+  .experience {
+    margin-top: 10%;
+  }
+
+  .home img {
+    margin-top: 25%;
+  }
+
+  .small-screen {
+    display: block;
+  }
+
+  .big-screen {
+    display: none;
+  }
+
+  .gap-8 {
+    gap: 4rem;
+  }
+
+  .home h2 {
+    font-size: 2.7rem;
+    line-height: 3rem;
+    margin-top: 7%;
+    color: white;
+    animation: textAnimation 5s infinite alternate;
+  }
+
+  .portfolio-btn {
+    margin: auto;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+
+  .portfolio-btn:hover {
+    background: rgba(0, 94, 184, 0.8);
+  }
+
+  .px-12 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }

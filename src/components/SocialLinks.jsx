@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
-import resume from "../assets/resume.pdf"
+import resume from "../assets/resume.pdf";
+import "./css/social.css";
+
 const SocialLinks = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isBlinking, setIsBlinking] = useState(true); // Manage blinking state
+
   const links = [
     {
       id: 1,
@@ -55,30 +60,57 @@ const SocialLinks = () => {
     },
   ];
 
+  const handleClick = () => {
+    setIsVisible(!isVisible);
+    // Set blinking based on visibility of social links
+    if (isVisible) {
+      setIsBlinking(false); // Stop blinking when arrow is pointing up
+    } else {
+      setIsBlinking(true); // Start blinking when arrow is pointing down
+    }
+  };
+
   return (
-    <div className="hidden lg:flex flex-col top-[35%] left-0 fixed">
-      <ul>
-        {links.map(({ id, child, href, style, download }) => (
-          <li
-            key={id}
-            className={
-              "flex justify-between items-center w-40 h-14 px-4 ml-[-100px] hover:ml-[-10px] hover:rounded-md duration-300 bg-gray-500" +
-              " " +
-              style
-            }
+    <div className="flex flex-col top-[35%] left-0 fixed">
+      <div className="relative">
+        {/* Arrow Button with dynamic rotation and blinking effect */}
+        <button
+          className="flex justify-center items-center bg-gradient-to-r from-purple-500 to-pink-500 p-2 rounded-full text-white transition-transform duration-300 ease-in-out hover:scale-110"
+          onClick={handleClick}
+        >
+          <span
+            className={`text-2xl transition-transform duration-300 ${
+              isVisible ? "rotate-180" : "rotate-0"
+            } ${isBlinking ? "" : "blink"}`}
           >
-            <a
-              href={href}
-              className="flex justify-between items-center w-full text-white"
-              download={download}
-              target="_blank"
-              rel="noreferrer"
+            &darr;
+          </span>
+        </button>
+
+        {/* Social Links List */}
+        <ul
+          className={`flex flex-col mt-4 space-y-4 transform transition-all duration-300 ease-in-out ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-[-120px]"
+          }`}
+        >
+          {links.map(({ id, child, href, style, download }) => (
+            <li
+              key={id}
+              className={`flex justify-between items-center w-40 h-14 px-4 ml-[-100px] hover:ml-[-10px] hover:rounded-md duration-300 bg-gradient-to-r from-blue-400 via-green-400 to-yellow-500 ${style}`}
             >
-              {child}
-            </a>
-          </li>
-        ))}
-      </ul>
+              <a
+                href={href}
+                className="flex justify-between items-center w-full text-white"
+                download={download}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {child}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

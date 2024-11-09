@@ -1,0 +1,79 @@
+/* footer.css */
+
+.footer-container {
+  position: fixed; /* Fixed position at the bottom */
+  left: 0;
+  right: 0;
+  bottom: -100px; /* Start position off-screen */
+  animation: slideUp 0.5s ease-out forwards; /* Animation to slide up */
+  z-index: 9999; /* Ensure it's on top */
+}
+
+@keyframes slideUp {
+  0% {
+    bottom: -100px; /* Start off the screen */
+  }
+  100% {
+    bottom: 0; /* End at the bottom of the page */
+  }
+}
+
+.footer-text, .footer-link, .footer-time {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-time {
+  font-size: 14px;
+}
+
+/* Mobile screen: Make footer stay below without animation */
+@media (max-width: 768px) {
+  .footer-container {
+    position: relative; /* Change to relative position for mobile */
+    bottom: 0; /* Footer stays below content */
+    animation: none; /* Remove animation */
+    margin-top: 20px; /* Optional: Add some space if you want it further below */
+  }
+}
+
+/* Home Animation Styles */
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slide-in-left 0.5s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slide-in-right 0.5s ease-out forwards;
+}
+

@@ -1,0 +1,15 @@
+.footer {
+    opacity: 0;
+    transition: opacity 1s ease-out, transform 0.8s ease-out;
+    transform: translateY(-50px); /* Start from above */
+  }
+  
+  .footer-visible {
+    opacity: 1;
+    transform: translateY(0); /* Fade in and move to position */
+  }
+  
+  .text-white {
+    color: white;
+  }
+  

@@ -34,43 +34,33 @@ const About = () => {
       <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
         <div className="pb-8">
           <p
-            className={`text-4xl font-bold inline border-b-4 border-gray-500 transition-transform duration-700 ${
-              scrollDirection === "down" ? "translate-y-8" : "translate-y-0"
-            }`}
+            className={`text-4xl font-bold inline border-b-4 border-gray-500 transition-transform duration-700 ${scrollDirection === "down" ? "translate-y-8" : "translate-y-0"
+              }`}
           >
             About
           </p>
         </div>
 
         <p
-          className={`text-xl mt-5 transition-transform duration-700 ${
-            scrollDirection === "down" ? "translate-y-8" : "translate-y-0"
-          }`}
+          className={`text-xl mt-5 transition-transform duration-700 ${scrollDirection === "down" ? "translate-y-8" : "translate-y-0"
+            }`}
         >
           Oh hey there! I'm a frontend developer, and I make the web come alive
           with some serious React, Next.js, and Redux magic. While I’m the{" "}
-          <strong>queen</strong> of frontend, I’ve got the backend chops too,
+          <strong>king</strong> of frontend, I’ve got the backend chops too,
           giving me that full-stack flair! <br /> <br />
-          I'm all about perfecting my skills, tackling new tech, and staying on
-          top of the latest trends. Let's make your website the hottest thing on
-          the internet, shall we?
+          I'm all about perfecting my skills, tackling new tech, and staying on top of the latest trends.
+          Let's make your website the hottest thing on the internet, shall we?
         </p>
 
         <br />
 
         <p
-          className={`text-xl transition-transform duration-700 ${
-            scrollDirection === "down" ? "translate-y-8" : "translate-y-0"
-          }`}
+          className={`text-xl transition-transform duration-700 ${scrollDirection === "down" ? "translate-y-8" : "translate-y-0"
+            }`}
         >
-          I'm the kind of developer who builds from scratch and loves turning
-          ideas into a vibrant reality. <br /> <br />
-          Let’s make your brand unforgettable, and give your customers an
-          experience that’ll keep them coming back. Because let’s be
-          honest—who doesn’t love a flawless design? Let's get your project to
-          go viral and stand out from the crowd! <br /> <br />
-          I'm here to transform your product’s identity and help you drive more
-          traffic with a solid design that people can't stop talking about.
+          Let’s make your brand unforgettable and give your customers an experience that’ll keep them coming back. Because let’s be honest—who doesn’t love a flawless design? Let's get your project to go viral and stand out from the crowd! <br /> <br />
+          I'm here to transform your product’s identity and help you drive more traffic with a design that people can't stop talking abo
         </p>
       </div>
     </div>

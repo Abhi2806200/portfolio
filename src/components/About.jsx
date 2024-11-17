@@ -60,7 +60,7 @@ const About = () => {
             }`}
         >
           Let’s make your brand unforgettable and give your customers an experience that’ll keep them coming back. Because let’s be honest—who doesn’t love a flawless design? Let's get your project to go viral and stand out from the crowd! <br /> <br />
-          I'm here to transform your product’s identity and help you drive more traffic with a design that people can't stop talking abo
+          I'm here to transform your product’s identity and help you drive more traffic with a design that people can't stop talking about.
         </p>
       </div>
     </div>

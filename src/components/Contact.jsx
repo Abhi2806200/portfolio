@@ -1,65 +1,141 @@
 import React from "react";
-import { motion } from "framer-motion"; // For animation
+import { motion } from "framer-motion";
+import { FaEnvelope, FaWhatsapp, FaLinkedin, FaGithub } from "react-icons/fa";
+import resume from "../assets/abhishek_resume.pdf"; // Import the resume file
+import { toast } from "react-toastify";
 
 const Contact = () => {
+  // Animation variants for Framer Motion
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
+  };
+
+  // Contact information
+  const contactInfo = [
+    {
+      id: 1,
+      icon: <FaEnvelope className="text-2xl md:text-3xl" />,
+      text: "abhishekagni2806@gmail.com",
+      link: "mailto:abhishekagni2806@gmail.com",
+      color: "hover:text-blue-400",
+    },
+    {
+      id: 2,
+      icon: <FaWhatsapp className="text-2xl md:text-3xl" />,
+      text: "+91 82190 71272",
+      link: "https://wa.me/918219071272",
+      color: "hover:text-green-400",
+    },
+    {
+      id: 3,
+      icon: <FaLinkedin className="text-2xl md:text-3xl" />,
+      text: "LinkedIn Profile",
+      link: "https://www.linkedin.com/in/abhishek-agnihotri-b46039165/",
+      color: "hover:text-blue-500",
+    },
+    {
+      id: 4,
+      icon: <FaGithub className="text-2xl md:text-3xl" />,
+      text: "GitHub Profile",
+      link: "https://github.com/Abhi2806200",
+      color: "hover:text-gray-400",
+    },
+  ];
+
+  // Function to handle resume download
+  const handleDownloadResume = () => {
+    // Show a toast notification
+    toast.success("Downloading resume...");
+
+    // Create a temporary link element
+    const link = document.createElement("a");
+    link.href = resume; // Use the imported resume file
+    link.download = "Abhishek_Agnihotri_Resume.pdf"; // Name of the downloaded file
+    document.body.appendChild(link);
+    link.click(); // Trigger the download
+    document.body.removeChild(link); // Clean up
+  };
+
   return (
-    <div
+    <section
       name="contact"
-      className="contact w-full h-screen bg-transparent p-4 text-white"
+      className="w-full bg-gradient-to-b from-black to-gray-800 p-4 text-white"
     >
-      <div className="flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full">
-        <div className="pb-8">
-          <p className="text-4xl font-bold inline border-b-4 border-gray-500">
+      <motion.div
+        className="flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        {/* Header Section */}
+        <motion.div className="pb-8" variants={itemVariants}>
+          <h2 className="text-4xl font-bold inline border-b-4 border-gray-500">
             Contact
+          </h2>
+          <p className="py-6 text-gray-300">
+            Let's connect! Reach out through any of these platforms.
           </p>
-          <p className="py-6">You can reach me via email or WhatsApp.</p>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col justify-center items-center">
-          {/* Email and WhatsApp Section */}
-          <motion.div
-            className="flex flex-col items-center justify-center space-y-6"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeInOut" }}
-          >
-            {/* Email Section */}
-            <motion.div
-              className="text-xl md:text-2xl flex items-center space-x-3 hover:scale-105 transition-transform duration-300"
-              whileHover={{ scale: 1.1 }}
+        {/* Contact Cards */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4 px-4 sm:px-0"
+          variants={containerVariants}
+        >
+          {contactInfo.map(({ id, icon, text, link, color }) => (
+            <motion.a
+              key={id}
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center space-x-4 p-4 sm:p-6 rounded-lg 
+                bg-gradient-to-r from-gray-800 to-gray-700 
+                transform hover:scale-105 transition-all duration-300 
+                cursor-pointer ${color} overflow-hidden`}
+              variants={itemVariants}
+              whileHover={{ y: -5, scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <span className="font-semibold">Email:</span>
-              <a
-                href="mailto:abhishekagni2806@gmail.com"
-                className="text-pink-500 hover:underline"
-              >
-                abhishekagni2806@gmail.com
-              </a>
-            </motion.div>
+              {icon}
+              <span className="text-base sm:text-lg md:text-xl truncate">
+                {text}
+              </span>
+            </motion.a>
+          ))}
+        </motion.div>
 
-            {/* WhatsApp Section */}
-            <motion.div
-              className="text-xl md:text-2xl flex items-center space-x-3 hover:scale-105 transition-transform duration-300"
-              whileHover={{ scale: 1.1 }}
+        {/* Footer Section */}
+        <motion.div
+          className="mt-12 text-center"
+          variants={itemVariants}
+        >
+          <p className="text-gray-300">
+            Available for freelance work and full-time positions
+          </p>
+          <div className="mt-4">
+            <motion.button
+              className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 
+                rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-600 
+                transition-all duration-300 transform hover:scale-105"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleDownloadResume}
             >
-              <span className="font-semibold">WhatsApp:</span>
-              <a
-                href="https://wa.me/918219071272"
-                className="text-green-500 hover:underline"
-              >
-                +91 8219071272
-              </a>
-              {/* India Flag */}
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/1024px-Flag_of_India.svg.png"
-                alt="India Flag"
-                className="w-8 h-8 ml-2 rounded-full"
-              />
-            </motion.div>
-          </motion.div>
-        </div>
-      </div>
-    </div>
+              Download Resume
+            </motion.button>
+          </div>
+        </motion.div>
+      </motion.div>
+    </section>
   );
 };
 

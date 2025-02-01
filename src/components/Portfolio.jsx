@@ -1,11 +1,13 @@
-import React from "react";
-import { motion } from "framer-motion"; // Import motion from framer-motion
+import React, { useMemo } from "react";
+import { motion } from "framer-motion";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import digital from "../assets/portfolio/digitalram.png";
 import raging from "../assets/portfolio/ragingbull.jpeg";
 import nested from "../assets/portfolio/nestedform.png";
 
 const Portfolio = () => {
-  const portfolios = [
+  const portfolios = useMemo(() => [
     {
       id: 1,
       src: digital,
@@ -24,56 +26,87 @@ const Portfolio = () => {
       link: 'https://deeply-nested-form.vercel.app/',
       repo: ''
     },
-  ];
+  ], []);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5 }
+    }
+  };
 
   return (
-    <div
-      name="project"
-      className="w-full text-white md:h-screen portfolio"
-      style={{ backgroundColor: 'transparent' }}
-    >
-      <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
-        <div className="pb-8">
-          <p className="text-4xl font-bold inline border-b-4 border-gray-500">
-            Projects
-          </p>
-          <p className="py-6">Check out some of my work right here</p>
-        </div>
+    <section name="portfolio" className="w-full min-h-screen bg-gradient-to-b from-black to-gray-800 py-16">
+      <motion.div 
+        className="max-w-screen-lg mx-auto p-4 flex flex-col justify-center w-full h-full text-white"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        <motion.header className="mb-12">
+          <motion.h2 
+            className="text-4xl font-bold border-b-4 border-gray-500 p-2 inline"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Portfolio
+          </motion.h2>
+          <motion.p 
+            className="py-6 text-gray-300"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            Check out some of my work right here
+          </motion.p>
+        </motion.header>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-12 sm:px-0">
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+          variants={containerVariants}
+        >
           {portfolios.map(({ id, src, link, repo }) => (
             <motion.div
               key={id}
-              className="relative shadow-lg shadow-gray-600 rounded-lg bg-transparent transition-all duration-500 hover:scale-105 hover:shadow-xl hover:bg-opacity-40"
-              initial={{ opacity: 0, y: 100 }}  // Initial position for sliding effect (from bottom)
-              whileInView={{ opacity: 1, y: 0 }} // Animate to full opacity and original position
-              viewport={{ once: false, amount: 0.3 }} // Trigger when 30% of the element is visible
-              transition={{ duration: 0.7, delay: id * 0.2 }} // Stagger the animation
+              className="shadow-lg rounded-lg overflow-hidden bg-gray-900 flex flex-col items-center"
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-               
-              <img
-                src={src}
-                alt="project"
-                className="rounded-md w-full h-72 object-cover transition-transform duration-500 ease-in-out transform hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-transparent rounded-md"></div>
-              <div className="absolute bottom-4 left-0 right-0 text-center flex justify-center gap-4 px-6 py-3">
-                <motion.button
-                  className="relative  bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 text-white px-6 py-3 rounded-md shadow-lg overflow-hidden transform transition duration-200 hover:scale-105"
-                  onClick={() => window.open(link, '_blank')}
-                  initial={{ x: -100 }}  // Initial position to the left
-                  whileInView={{ x: 0 }}  // Animate to the original position
-                  transition={{ duration: 0.5, delay: id * 0.2 }} // Staggered effect
-                >
-                  <span className="relative z-10">Click here</span>
-                  <div className="absolute inset-0 bg-white opacity-20 transform -translate-x-full transition-transform duration-300 hover:translate-x-0"></div>
-                </motion.button>
+              <div className="w-full h-48 flex items-center justify-center bg-gray-800 overflow-hidden">
+                <LazyLoadImage
+                  src={src}
+                  alt=""
+                  effect="blur"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4 w-full text-center">
+                <a href={link} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold text-teal-400 hover:underline">
+                  View Project
+                </a>
+                {repo && (
+                  <a href={repo} target="_blank" rel="noopener noreferrer" className="ml-4 text-lg font-semibold text-teal-400 hover:underline">
+                    View Code
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </section>
   );
 };
 

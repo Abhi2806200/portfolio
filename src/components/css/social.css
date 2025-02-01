@@ -1,16 +1,27 @@
-@keyframes blink {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+/* social.css */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
   }
-  
-  .blink {
-    animation: blink 1s infinite;
+  50% {
+    transform: scale(1.1);
   }
-  
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+.glow-border {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* social.css */
+@media (max-width: 768px) {
+  .social-links-container {
+    bottom: 80px; /* Adjust this value to avoid overlap with the Footer */
+  }
+}

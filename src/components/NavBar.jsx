@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll";
 import './css/navbar.css';
@@ -11,7 +11,7 @@ const NavBar = () => {
   const links = [
     { id: 1, link: "home" },
     { id: 2, link: "about" },
-    { id: 3, link: "project" },
+    { id: 3, link: "portfolio" },
     { id: 4, link: "experience" },
     { id: 5, link: "contact" },
   ];
@@ -43,15 +43,20 @@ const NavBar = () => {
     return () => clearTimeout(timer); 
   }, []);
 
+  const toggleNav = useCallback(() => {
+    setNav((prevNav) => !prevNav);
+  }, []);
+
   function refreshPage() {
     window.location.reload(false);
   }
 
   return (
     <div
-      className={`flex justify-between items-center w-full h-20 px-4 text-white fixed top-0 z-50 nav bg-transparent shadow-md transition-all ease-in-out duration-300 ${
+      className={`flex justify-between items-center w-full h-20 px-4 text-white fixed top-0 z-50 nav bg-opacity-90 backdrop-blur-sm shadow-lg transition-all ease-in-out duration-300 ${
         scrollingUp ? "navbar-visible" : "navbar-hidden"
       }`}
+      style={{ backgroundColor: 'rgba(17, 24, 39, 0.9)' }} // Semi-transparent dark background
     >
       <div>
         <h1 className={`text-5xl font-signature ml-2 cursor-pointer ${animateLogo ? "animate-rotate" : ""}`}>
@@ -72,15 +77,15 @@ const NavBar = () => {
         ))}
       </ul>
 
-      <div onClick={() => setNav(!nav)} className="cursor-pointer pr-4 z-10 text-gray-300 md:hidden">
+      <div onClick={toggleNav} className="cursor-pointer pr-4 z-10 text-gray-300 md:hidden">
         {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
       </div>
 
       {nav && (
-        <ul style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }} className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-transparent to-gray-800 text-gray-500 transition-all ease-in-out duration-500">
+        <ul style={{ backgroundColor: 'rgba(17, 24, 39, 0.95)' }} className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-transparent to-gray-900 text-gray-300 transition-all ease-in-out duration-500">
           {links.map(({ id, link }) => (
             <li key={id} className="px-4 cursor-pointer capitalize py-6 text-4xl hover:text-white transition-all duration-300">
-              <Link onClick={() => setNav(!nav)} to={link} smooth duration={500}>
+              <Link onClick={toggleNav} to={link} smooth duration={500}>
                 {link}
               </Link>
             </li>

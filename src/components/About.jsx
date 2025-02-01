@@ -1,69 +1,112 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
+import { motion } from "framer-motion";
+import { debounce } from "lodash";
 
 const About = () => {
-  // State to track scroll direction
   const [scrollDirection, setScrollDirection] = useState("up");
 
-  // Track the scroll position to detect direction
+  // Handle scroll direction with debouncing
+  const handleScroll = useCallback(
+    () => {
+      const currentScrollY = window.scrollY;
+      setScrollDirection((prevDirection) => {
+        const direction = currentScrollY > (window.lastScrollY || 0) ? "down" : "up";
+        window.lastScrollY = currentScrollY;
+        return direction;
+      });
+    },
+    []
+  );
+
+  // Debounced version of handleScroll
+  const debouncedHandleScroll = useCallback(
+    debounce(handleScroll, 100),
+    [handleScroll] // Explicitly declare handleScroll as a dependency
+  );
+
+  // Add and clean up scroll event listener
   useEffect(() => {
-    let lastScrollY = window.scrollY;
+    window.addEventListener("scroll", debouncedHandleScroll);
+    return () => window.removeEventListener("scroll", debouncedHandleScroll);
+  }, [debouncedHandleScroll]);
 
-    const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        setScrollDirection("down");
-      } else {
-        setScrollDirection("up");
-      }
-      lastScrollY = window.scrollY;
-    };
+  // Animation variants for Framer Motion
+  const variants = useMemo(
+    () => ({
+      hidden: { opacity: 0, y: 20 },
+      visible: { opacity: 1, y: 0 },
+    }),
+    []
+  );
 
-    // Add scroll event listener
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  // Scroll-based transform styles
+  const scrollTransform = useMemo(
+    () => ({
+      transform: scrollDirection === "down" ? "translateY(8px)" : "translateY(0)",
+      transition: "transform 700ms",
+    }),
+    [scrollDirection]
+  );
 
   return (
-    <div
+    <motion.div
       name="about"
-      className="w-full h-100 bg-transparent text-white"
+      className="w-full h-auto flex items-center justify-center bg-gradient-to-b from-transparent to-black text-white py-12"
+      initial="hidden"
+      animate="visible"
+      variants={variants}
+      transition={{ duration: 0.5 }}
     >
-      <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
-        <div className="pb-8">
-          <p
-            className={`text-4xl font-bold inline border-b-4 border-gray-500 transition-transform duration-700 ${scrollDirection === "down" ? "translate-y-8" : "translate-y-0"
-              }`}
+      <div className="max-w-screen-lg mx-auto px-4 w-full">
+        {/* About Section Header */}
+        <motion.div className="pb-8" variants={variants}>
+          <h2
+            className="text-4xl font-bold inline border-b-4 border-gray-500"
+            style={scrollTransform}
           >
             About
-          </p>
+          </h2>
+        </motion.div>
+
+        {/* About Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Introduction Text */}
+          <motion.div
+            variants={variants}
+            transition={{ delay: 0.2 }}
+            className="space-y-4"
+          >
+            <p className="text-xl leading-relaxed" style={scrollTransform}>
+              Oh hey there! I'm a frontend developer, and I make the web come alive
+              with some serious React, Next.js, and Redux magic.
+            </p>
+            <p
+              className="text-xl leading-relaxed text-gray-300"
+              style={scrollTransform}
+            >
+              I specialize in building responsive and performant web applications
+              using modern technologies and best practices.
+            </p>
+          </motion.div>
+
+          {/* Skills Section */}
+          <motion.div
+            variants={variants}
+            transition={{ delay: 0.4 }}
+            className="space-y-4"
+          >
+            <h3 className="text-2xl font-semibold text-teal-400">Skills</h3>
+            <ul className="list-disc list-inside space-y-2 text-gray-300">
+              <li>React & Next.js Development</li>
+              <li>State Management with Redux</li>
+              <li>Responsive Web Design</li>
+              <li>Performance Optimization</li>
+              <li>UI/UX Implementation</li>
+            </ul>
+          </motion.div>
         </div>
-
-        <p
-          className={`text-xl mt-5 transition-transform duration-700 ${scrollDirection === "down" ? "translate-y-8" : "translate-y-0"
-            }`}
-        >
-          Oh hey there! I'm a frontend developer, and I make the web come alive
-          with some serious React, Next.js, and Redux magic. While I’m the{" "}
-          <strong>king</strong> of frontend, I’ve got the backend chops too,
-          giving me that full-stack flair! <br /> <br />
-          I'm all about perfecting my skills, tackling new tech, and staying on top of the latest trends.
-          Let's make your website the hottest thing on the internet, shall we?
-        </p>
-
-        <br />
-
-        <p
-          className={`text-xl transition-transform duration-700 ${scrollDirection === "down" ? "translate-y-8" : "translate-y-0"
-            }`}
-        >
-          Let’s make your brand unforgettable and give your customers an experience that’ll keep them coming back. Because let’s be honest—who doesn’t love a flawless design? Let's get your project to go viral and stand out from the crowd! <br /> <br />
-          I'm here to transform your product’s identity and help you drive more traffic with a design that people can't stop talking about.
-        </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

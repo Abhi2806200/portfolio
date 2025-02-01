@@ -1,171 +1,4 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  html {
-    font-family: "Raleway", sans-serif;
-    background: linear-gradient(135deg, rgba(255, 51, 102, 0.6), rgba(0, 94, 184, 0.6));
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: textAnimation 10s infinite alternate;
-  }
-}
-
-@keyframes textAnimation {
-  0% {
-    color: rgba(255, 51, 102, 0.6);
-  }
-  50% {
-    color: rgba(0, 94, 184, 0.6);
-  }
-  100% {
-    color: rgba(0, 255, 255, 0.6);
-  }
-}
-
-#root {
-  background: linear-gradient(135deg, rgba(0, 51, 102, 0.7), rgba(255, 51, 204, 0.7));
-  min-height: 100vh;
-  position: relative;
-  animation: backgroundAnimation 15s ease-in-out infinite;
-}
-
-@keyframes backgroundAnimation {
-  0% {
-    background: linear-gradient(135deg, rgba(0, 51, 102, 0.7), rgba(255, 51, 204, 0.7));
-  }
-  50% {
-    background: linear-gradient(135deg, rgba(0, 94, 184, 0.7), rgba(0, 255, 255, 0.7));
-  }
-  100% {
-    background: linear-gradient(135deg, rgba(255, 51, 102, 0.7), rgba(0, 255, 255, 0.7));
-  }
-}
-
-body {
-  background: rgba(31, 41, 55, 0.9);
-  color: white;
-  transition: background 0.5s ease;
-}
-
-.nav {
-  z-index: 10;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.link-underline {
-  border-bottom-width: 0;
-  background-image: linear-gradient(transparent, transparent),
-    linear-gradient(#fff, #fff);
-  background-size: 0 3px;
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  transition: background-size 0.5s ease-in-out;
-}
-
-.link-underline-black {
-  background-image: linear-gradient(transparent, transparent),
-    linear-gradient(#000, #fff);
-}
-
-.link-underline:hover {
-  background-size: 100% 3px;
-  background-position: 0 100%;
-  line-height: 1.2;
-}
-
-.portfolio,
-.contact {
-  margin-top: 8%;
-}
-
-.experience {
-  margin-top: 12%;
-}
-
-.nav-links {
-  text-underline-offset: 1rem;
-}
-
-@media screen and (max-width: 900px) {
-  #root {
-    background: linear-gradient(135deg, rgba(31, 41, 55, 0.7), rgba(0, 94, 184, 0.7));
-    min-height: 100vh;
-    animation: none;
-  }
-
-  .about,
-  .contact,
-  .portfolio,
-  .experience,
-  .home {
-    text-align: center;
-    height: 100%;
-  }
-
-  .about,
-  .portfolio,
-  .experience {
-    margin-top: 10%;
-  }
-
-  .home img {
-    margin-top: 25%;
-  }
-
-  .small-screen {
-    display: block;
-  }
-
-  .big-screen {
-    display: none;
-  }
-
-  .gap-8 {
-    gap: 4rem;
-  }
-
-  .home h2 {
-    font-size: 2.7rem;
-    line-height: 3rem;
-    margin-top: 7%;
-    color: white;
-    animation: textAnimation 5s infinite alternate;
-  }
-
-  .portfolio-btn {
-    margin: auto;
-    padding: 1rem 2rem;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-  }
-
-  .portfolio-btn:hover {
-    background: rgba(0, 94, 184, 0.8);
-  }
-
-  .px-12 {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-} */
-
-
-
-
-
-
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 
 @tailwind base;
@@ -175,42 +8,181 @@ body {
 @layer base {
   html {
     font-family: "Raleway", sans-serif;
-    background: linear-gradient(135deg, rgba(255, 51, 102, 0.6), rgba(0, 94, 184, 0.6));
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: textAnimation 10s infinite alternate;
+    background: #0f1729;
+    color: #e2e8f0;
+    scroll-behavior: smooth;
   }
+
+  body {
+    background: linear-gradient(135deg, rgba(15, 23, 41, 0.95), rgba(30, 41, 59, 0.95));
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+/* Dark theme color variables */
+:root {
+  --dark-primary: #0f172a;
+  --dark-secondary: #1e293b;
+  --dark-accent: #3b82f6;
+  --dark-text: #e2e8f0;
+  --dark-muted: #64748b;
 }
 
 @keyframes textAnimation {
   0% {
-    color: rgba(255, 51, 102, 0.6);
+    color: rgba(59, 130, 246, 0.6); /* Blue */
   }
   50% {
-    color: rgba(0, 94, 184, 0.6);
+    color: rgba(139, 92, 246, 0.6); /* Purple */
   }
   100% {
-    color: rgba(0, 255, 255, 0.6);
+    color: rgba(236, 72, 153, 0.6); /* Pink */
   }
 }
 
 #root {
-  background: linear-gradient(135deg, rgba(0, 51, 102, 0.7), rgba(255, 51, 204, 0.7));
+  background: linear-gradient(135deg, 
+    rgba(15, 23, 42, 0.95), /* Darker blue */
+    rgba(30, 41, 59, 0.95)  /* Darker purple */
+  );
   min-height: 100vh;
   position: relative;
   animation: backgroundAnimation 15s ease-in-out infinite;
+  color: var(--dark-text);
 }
 
 @keyframes backgroundAnimation {
   0% {
-    background: linear-gradient(135deg, rgba(0, 51, 102, 0.7), rgba(255, 51, 204, 0.7));
+    background: linear-gradient(135deg,
+      rgba(15, 23, 42, 0.95),
+      rgba(30, 41, 59, 0.95)
+    );
   }
   50% {
-    background: linear-gradient(135deg, rgba(0, 94, 184, 0.7), rgba(0, 255, 255, 0.7));
+    background: linear-gradient(135deg,
+      rgba(30, 41, 59, 0.95),
+      rgba(51, 65, 85, 0.95)
+    );
   }
   100% {
-    background: linear-gradient(135deg, rgba(255, 51, 102, 0.7), rgba(0, 255, 255, 0.7));
+    background: linear-gradient(135deg,
+      rgba(15, 23, 42, 0.95),
+      rgba(30, 41, 59, 0.95)
+    );
   }
+}
+
+/* Add smooth transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Mobile-first responsive design */
+@layer components {
+  .container {
+    @apply px-4 mx-auto;
+    max-width: 100%;
+  }
+
+  @screen sm {
+    .container {
+      max-width: 640px;
+    }
+  }
+
+  @screen md {
+    .container {
+      max-width: 768px;
+    }
+  }
+
+  @screen lg {
+    .container {
+      max-width: 1024px;
+    }
+  }
+
+  @screen xl {
+    .container {
+      max-width: 1280px;
+    }
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Gradient text animation */
+.gradient-text {
+  background: linear-gradient(135deg, #ec4899, #8b5cf6, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientMove 8s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive typography */
+@layer utilities {
+  .text-responsive {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+  }
+  
+  .heading-responsive {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+  }
+}
+
+/* Dark mode optimizations */
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Mobile menu animations */
+.mobile-menu-enter {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.mobile-menu-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 200ms ease-in, transform 200ms ease-in;
+}
+
+.mobile-menu-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.mobile-menu-exit-active {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
 }
 
 /* Mobile styles */

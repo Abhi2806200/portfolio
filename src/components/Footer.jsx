@@ -57,16 +57,26 @@ function Footer() {
   return (
     <div
       id="footer"
-      className={`text-center p-6 bg-transparent footer ${isVisible ? "footer-visible" : ""}`}
+      className={`text-center p-8 bg-gray-900 footer ${
+        isVisible ? "footer-visible" : ""
+      }`}
     >
-      <span className="text-white">
-        &copy; {currentYear} Copyright - 
-      </span>
-      <a className="link-underline text-white font-bold" href="https://#">
-        Abhishek Agnihotri
-      </a>
-      <div className="text-white mt-2">
-        Local Time: {currentTime}
+      <div className="max-w-4xl mx-auto">
+        <div className="text-white text-sm md:text-base mb-4">
+          &copy; {currentYear} Copyright -{" "}
+          <a
+            className="link-underline text-black-500 font-bold hover:text-black-400 transition-colors duration-300"
+            href="https://www.linkedin.com/in/abhishek-agnihotri-b46039165/"
+          >
+            Abhishek Agnihotri
+          </a>
+        </div>
+        <div className="text-white text-sm md:text-base">
+          Local Time:{" "}
+          <span className="font-mono bg-gray-800 px-3 py-1 rounded-full">
+            {currentTime}
+          </span>
+        </div>
       </div>
     </div>
   );

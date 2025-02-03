@@ -5,6 +5,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import digital from "../assets/portfolio/digitalram.png";
 import raging from "../assets/portfolio/ragingbull.jpeg";
 import nested from "../assets/portfolio/nestedform.png";
+import three from "../assets/portfolio/three.png";
 
 const Portfolio = () => {
   const portfolios = useMemo(() => [
@@ -24,6 +25,12 @@ const Portfolio = () => {
       id: 3,
       src: nested,
       link: 'https://deeply-nested-form.vercel.app/',
+      repo: ''
+    },
+    {
+      id: 4,
+      src: three,
+      link: 'https://three-js-example-nine.vercel.app/',
       repo: ''
     },
   ], []);

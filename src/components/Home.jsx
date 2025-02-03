@@ -83,7 +83,7 @@ const Home = () => {
       animate="visible"
       variants={containerVariants}
     >
-      <div className="max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full px-6 md:flex-row gap-8 md:gap-12">
+      <div className="max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full px-4 md:flex-row gap-8 md:gap-12">
         {/* Text Section */}
         <motion.div
           ref={textRef}
@@ -91,13 +91,13 @@ const Home = () => {
           variants={itemVariants}
           animate={controls}
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-700">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-700">
             {greeting}
           </h1>
-          <p className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-200 mt-4 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-200 mt-4 leading-relaxed">
             {HERO_TEXT.description}
           </p>
-          <div className="mt-8">
+          <div className="mt-6 md:mt-8">
             <Link
               to="portfolio"
               smooth
@@ -117,7 +117,7 @@ const Home = () => {
         {/* Image Section */}
         <motion.div
           ref={imageRef}
-          className={`md:w-1/3 ${imageInView ? "slide-in-right" : "opacity-0"}`}
+          className={`w-full md:w-1/3 ${imageInView ? "slide-in-right" : "opacity-0"}`}
           variants={itemVariants}
           animate={controls}
         >

@@ -13,7 +13,7 @@ function App() {
     <div className="relative min-h-screen bg-gradient-to-b from-dark-primary to-dark-secondary">
         <ToastContainer
         position="bottom-center"
-        autoClose={3000}
+        autoClose={1000}
         hideProgressBar={true}
         newestOnTop={false}
         closeOnClick

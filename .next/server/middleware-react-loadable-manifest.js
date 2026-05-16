@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST="{\"components/ui/BackgroundWrapper.tsx -> ./BackgroundCanvas\":{\"id\":\"components/ui/BackgroundWrapper.tsx -> ./BackgroundCanvas\",\"files\":[\"static/chunks/_app-pages-browser_components_ui_BackgroundCanvas_tsx.js\"]}}"

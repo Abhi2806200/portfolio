@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, DM_Sans, DM_Mono } from "next/font/google";
 import { siteConfig, socialLinks } from "@/lib/data";
 import CursorProvider from "@/components/layout/CursorProvider";
@@ -27,6 +27,13 @@ const dmMono = DM_Mono({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#0a0a0f",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -35,17 +42,23 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
+    "Abhishek Agnihotri",
     "Frontend Developer",
     "React Developer",
     "Next.js Developer",
-    "TypeScript",
+    "TypeScript Developer",
     "Freelance Frontend Developer India",
-    "Abhishek Agnihotri",
     "Web Developer",
     "JavaScript Developer",
+    "UI Developer",
+    "Antier Solutions",
+    "Portfolio",
   ],
-  authors: [{ name: "Abhishek Agnihotri" }],
+  authors: [{ name: "Abhishek Agnihotri", url: siteConfig.url }],
   creator: "Abhishek Agnihotri",
+  alternates: {
+    canonical: siteConfig.url,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -53,18 +66,32 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: siteConfig.title }],
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Abhishek Agnihotri — Frontend Developer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
+    creator: "@Abhishe86339503",
     images: ["/opengraph-image"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -75,8 +102,17 @@ const jsonLd = {
   jobTitle: "Frontend Developer",
   url: siteConfig.url,
   email: socialLinks.email,
+  description: siteConfig.description,
   sameAs: [socialLinks.linkedin, socialLinks.github, socialLinks.twitter],
-  knowsAbout: ["React", "Next.js", "TypeScript", "JavaScript", "Frontend Development", "Web Development"],
+  knowsAbout: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "JavaScript",
+    "Tailwind CSS",
+    "Frontend Development",
+    "Web Development",
+  ],
   worksFor: { "@type": "Organization", name: "Freelance" },
 };
 
@@ -84,6 +120,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${dmSans.variable} ${dmMono.variable}`}>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

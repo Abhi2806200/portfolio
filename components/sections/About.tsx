@@ -103,10 +103,6 @@ export default function About() {
                 <p className="text-2xl font-heading font-bold text-accent">10+</p>
                 <p className="text-xs text-text-muted font-mono mt-0.5">Projects</p>
               </div>
-              <div className="flex-1 glass rounded-xl p-4 text-center">
-                <p className="text-2xl font-heading font-bold text-accent">∞</p>
-                <p className="text-xs text-text-muted font-mono mt-0.5">Commits</p>
-              </div>
             </div>
           </motion.div>
         </div>

@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST='{"components/sections/Hero.tsx -> ./HeroCanvas":{"id":6038,"files":["static/chunks/b536a0f1.c800bde8ac1bbf5a.js","static/chunks/38.0a0645b46cb69d87.js"]}}';

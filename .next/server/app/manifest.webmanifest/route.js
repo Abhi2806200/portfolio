@@ -1,133 +1,16 @@
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
-(() => {
-var exports = {};
-exports.id = "app/manifest.webmanifest/route";
-exports.ids = ["app/manifest.webmanifest/route"];
-exports.modules = {
-
-/***/ "(rsc)/./app/manifest.ts":
-/*!*************************!*\
-  !*** ./app/manifest.ts ***!
-  \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ manifest)\n/* harmony export */ });\nfunction manifest() {\n    return {\n        name: \"Abhishek Agnihotri — Software Developer\",\n        short_name: \"AA Dev\",\n        description: \"Software Developer specializing in React, Next.js, TypeScript & AI integration. Available for freelance projects.\",\n        start_url: \"/\",\n        display: \"standalone\",\n        background_color: \"#0a0a0f\",\n        theme_color: \"#0a0a0f\",\n        icons: [\n            {\n                src: \"/apple-icon\",\n                sizes: \"180x180\",\n                type: \"image/png\"\n            },\n            {\n                src: \"/icon\",\n                sizes: \"32x32\",\n                type: \"image/png\"\n            }\n        ]\n    };\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9hcHAvbWFuaWZlc3QudHMiLCJtYXBwaW5ncyI6Ijs7OztBQUVlLFNBQVNBO0lBQ3RCLE9BQU87UUFDTEMsTUFBTTtRQUNOQyxZQUFZO1FBQ1pDLGFBQ0U7UUFDRkMsV0FBVztRQUNYQyxTQUFTO1FBQ1RDLGtCQUFrQjtRQUNsQkMsYUFBYTtRQUNiQyxPQUFPO1lBQ0w7Z0JBQ0VDLEtBQUs7Z0JBQ0xDLE9BQU87Z0JBQ1BDLE1BQU07WUFDUjtZQUNBO2dCQUNFRixLQUFLO2dCQUNMQyxPQUFPO2dCQUNQQyxNQUFNO1lBQ1I7U0FDRDtJQUNIO0FBQ0YiLCJzb3VyY2VzIjpbIi9Vc2Vycy9hYmhpc2hla2Fnbmlob3RyaS9hYmhpc2hlayBwcm9qZWN0L0dpdEh1Yi9wb3J0Zm9saW8vYXBwL21hbmlmZXN0LnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB0eXBlIHsgTWV0YWRhdGFSb3V0ZSB9IGZyb20gXCJuZXh0XCI7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIG1hbmlmZXN0KCk6IE1ldGFkYXRhUm91dGUuTWFuaWZlc3Qge1xuICByZXR1cm4ge1xuICAgIG5hbWU6IFwiQWJoaXNoZWsgQWduaWhvdHJpIOKAlCBTb2Z0d2FyZSBEZXZlbG9wZXJcIixcbiAgICBzaG9ydF9uYW1lOiBcIkFBIERldlwiLFxuICAgIGRlc2NyaXB0aW9uOlxuICAgICAgXCJTb2Z0d2FyZSBEZXZlbG9wZXIgc3BlY2lhbGl6aW5nIGluIFJlYWN0LCBOZXh0LmpzLCBUeXBlU2NyaXB0ICYgQUkgaW50ZWdyYXRpb24uIEF2YWlsYWJsZSBmb3IgZnJlZWxhbmNlIHByb2plY3RzLlwiLFxuICAgIHN0YXJ0X3VybDogXCIvXCIsXG4gICAgZGlzcGxheTogXCJzdGFuZGFsb25lXCIsXG4gICAgYmFja2dyb3VuZF9jb2xvcjogXCIjMGEwYTBmXCIsXG4gICAgdGhlbWVfY29sb3I6IFwiIzBhMGEwZlwiLFxuICAgIGljb25zOiBbXG4gICAgICB7XG4gICAgICAgIHNyYzogXCIvYXBwbGUtaWNvblwiLFxuICAgICAgICBzaXplczogXCIxODB4MTgwXCIsXG4gICAgICAgIHR5cGU6IFwiaW1hZ2UvcG5nXCIsXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBzcmM6IFwiL2ljb25cIixcbiAgICAgICAgc2l6ZXM6IFwiMzJ4MzJcIixcbiAgICAgICAgdHlwZTogXCJpbWFnZS9wbmdcIixcbiAgICAgIH0sXG4gICAgXSxcbiAgfTtcbn1cbiJdLCJuYW1lcyI6WyJtYW5pZmVzdCIsIm5hbWUiLCJzaG9ydF9uYW1lIiwiZGVzY3JpcHRpb24iLCJzdGFydF91cmwiLCJkaXNwbGF5IiwiYmFja2dyb3VuZF9jb2xvciIsInRoZW1lX2NvbG9yIiwiaWNvbnMiLCJzcmMiLCJzaXplcyIsInR5cGUiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(rsc)/./app/manifest.ts\n");
-
-/***/ }),
-
-/***/ "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fmanifest.webmanifest%2Froute&page=%2Fmanifest.webmanifest%2Froute&appPaths=&pagePath=private-next-app-dir%2Fmanifest.ts&appDir=%2FUsers%2Fabhishekagnihotri%2Fabhishek%20project%2FGitHub%2Fportfolio%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2FUsers%2Fabhishekagnihotri%2Fabhishek%20project%2FGitHub%2Fportfolio&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fmanifest.webmanifest%2Froute&page=%2Fmanifest.webmanifest%2Froute&appPaths=&pagePath=private-next-app-dir%2Fmanifest.ts&appDir=%2FUsers%2Fabhishekagnihotri%2Fabhishek%20project%2FGitHub%2Fportfolio%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2FUsers%2Fabhishekagnihotri%2Fabhishek%20project%2FGitHub%2Fportfolio&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D! ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   patchFetch: () => (/* binding */ patchFetch),\n/* harmony export */   routeModule: () => (/* binding */ routeModule),\n/* harmony export */   serverHooks: () => (/* binding */ serverHooks),\n/* harmony export */   workAsyncStorage: () => (/* binding */ workAsyncStorage),\n/* harmony export */   workUnitAsyncStorage: () => (/* binding */ workUnitAsyncStorage)\n/* harmony export */ });\n/* harmony import */ var next_dist_server_route_modules_app_route_module_compiled__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/dist/server/route-modules/app-route/module.compiled */ \"(rsc)/./node_modules/next/dist/server/route-modules/app-route/module.compiled.js\");\n/* harmony import */ var next_dist_server_route_modules_app_route_module_compiled__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_dist_server_route_modules_app_route_module_compiled__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_dist_server_route_kind__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/dist/server/route-kind */ \"(rsc)/./node_modules/next/dist/server/route-kind.js\");\n/* harmony import */ var next_dist_server_lib_patch_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/dist/server/lib/patch-fetch */ \"(rsc)/./node_modules/next/dist/server/lib/patch-fetch.js\");\n/* harmony import */ var next_dist_server_lib_patch_fetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dist_server_lib_patch_fetch__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var next_metadata_route_loader_filePath_2FUsers_2Fabhishekagnihotri_2Fabhishek_20project_2FGitHub_2Fportfolio_2Fapp_2Fmanifest_ts_isDynamicRouteExtension_1_next_metadata_route___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next-metadata-route-loader?filePath=%2FUsers%2Fabhishekagnihotri%2Fabhishek%20project%2FGitHub%2Fportfolio%2Fapp%2Fmanifest.ts&isDynamicRouteExtension=1!?__next_metadata_route__ */ \"(rsc)/./node_modules/next/dist/build/webpack/loaders/next-metadata-route-loader.js?filePath=%2FUsers%2Fabhishekagnihotri%2Fabhishek%20project%2FGitHub%2Fportfolio%2Fapp%2Fmanifest.ts&isDynamicRouteExtension=1!?__next_metadata_route__\");\n\n\n\n\n// We inject the nextConfigOutput here so that we can use them in the route\n// module.\nconst nextConfigOutput = \"\"\nconst routeModule = new next_dist_server_route_modules_app_route_module_compiled__WEBPACK_IMPORTED_MODULE_0__.AppRouteRouteModule({\n    definition: {\n        kind: next_dist_server_route_kind__WEBPACK_IMPORTED_MODULE_1__.RouteKind.APP_ROUTE,\n        page: \"/manifest.webmanifest/route\",\n        pathname: \"/manifest.webmanifest\",\n        filename: \"manifest\",\n        bundlePath: \"app/manifest.webmanifest/route\"\n    },\n    resolvedPagePath: \"next-metadata-route-loader?filePath=%2FUsers%2Fabhishekagnihotri%2Fabhishek%20project%2FGitHub%2Fportfolio%2Fapp%2Fmanifest.ts&isDynamicRouteExtension=1!?__next_metadata_route__\",\n    nextConfigOutput,\n    userland: next_metadata_route_loader_filePath_2FUsers_2Fabhishekagnihotri_2Fabhishek_20project_2FGitHub_2Fportfolio_2Fapp_2Fmanifest_ts_isDynamicRouteExtension_1_next_metadata_route___WEBPACK_IMPORTED_MODULE_3__\n});\n// Pull out the exports that we need to expose from the module. This should\n// be eliminated when we've moved the other routes to the new format. These\n// are used to hook into the route.\nconst { workAsyncStorage, workUnitAsyncStorage, serverHooks } = routeModule;\nfunction patchFetch() {\n    return (0,next_dist_server_lib_patch_fetch__WEBPACK_IMPORTED_MODULE_2__.patchFetch)({\n        workAsyncStorage,\n        workUnitAsyncStorage\n    });\n}\n\n\n//# sourceMappingURL=app-route.js.map//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2J1aWxkL3dlYnBhY2svbG9hZGVycy9uZXh0LWFwcC1sb2FkZXIvaW5kZXguanM/bmFtZT1hcHAlMkZtYW5pZmVzdC53ZWJtYW5pZmVzdCUyRnJvdXRlJnBhZ2U9JTJGbWFuaWZlc3Qud2VibWFuaWZlc3QlMkZyb3V0ZSZhcHBQYXRocz0mcGFnZVBhdGg9cHJpdmF0ZS1uZXh0LWFwcC1kaXIlMkZtYW5pZmVzdC50cyZhcHBEaXI9JTJGVXNlcnMlMkZhYmhpc2hla2Fnbmlob3RyaSUyRmFiaGlzaGVrJTIwcHJvamVjdCUyRkdpdEh1YiUyRnBvcnRmb2xpbyUyRmFwcCZwYWdlRXh0ZW5zaW9ucz10c3gmcGFnZUV4dGVuc2lvbnM9dHMmcGFnZUV4dGVuc2lvbnM9anN4JnBhZ2VFeHRlbnNpb25zPWpzJnJvb3REaXI9JTJGVXNlcnMlMkZhYmhpc2hla2Fnbmlob3RyaSUyRmFiaGlzaGVrJTIwcHJvamVjdCUyRkdpdEh1YiUyRnBvcnRmb2xpbyZpc0Rldj10cnVlJnRzY29uZmlnUGF0aD10c2NvbmZpZy5qc29uJmJhc2VQYXRoPSZhc3NldFByZWZpeD0mbmV4dENvbmZpZ091dHB1dD0mcHJlZmVycmVkUmVnaW9uPSZtaWRkbGV3YXJlQ29uZmlnPWUzMCUzRCEiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7QUFBK0Y7QUFDdkM7QUFDcUI7QUFDaUk7QUFDOU07QUFDQTtBQUNBO0FBQ0Esd0JBQXdCLHlHQUFtQjtBQUMzQztBQUNBLGNBQWMsa0VBQVM7QUFDdkI7QUFDQTtBQUNBO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLFlBQVk7QUFDWixDQUFDO0FBQ0Q7QUFDQTtBQUNBO0FBQ0EsUUFBUSxzREFBc0Q7QUFDOUQ7QUFDQSxXQUFXLDRFQUFXO0FBQ3RCO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDMEY7O0FBRTFGIiwic291cmNlcyI6WyIiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQXBwUm91dGVSb3V0ZU1vZHVsZSB9IGZyb20gXCJuZXh0L2Rpc3Qvc2VydmVyL3JvdXRlLW1vZHVsZXMvYXBwLXJvdXRlL21vZHVsZS5jb21waWxlZFwiO1xuaW1wb3J0IHsgUm91dGVLaW5kIH0gZnJvbSBcIm5leHQvZGlzdC9zZXJ2ZXIvcm91dGUta2luZFwiO1xuaW1wb3J0IHsgcGF0Y2hGZXRjaCBhcyBfcGF0Y2hGZXRjaCB9IGZyb20gXCJuZXh0L2Rpc3Qvc2VydmVyL2xpYi9wYXRjaC1mZXRjaFwiO1xuaW1wb3J0ICogYXMgdXNlcmxhbmQgZnJvbSBcIm5leHQtbWV0YWRhdGEtcm91dGUtbG9hZGVyP2ZpbGVQYXRoPSUyRlVzZXJzJTJGYWJoaXNoZWthZ25paG90cmklMkZhYmhpc2hlayUyMHByb2plY3QlMkZHaXRIdWIlMkZwb3J0Zm9saW8lMkZhcHAlMkZtYW5pZmVzdC50cyZpc0R5bmFtaWNSb3V0ZUV4dGVuc2lvbj0xIT9fX25leHRfbWV0YWRhdGFfcm91dGVfX1wiO1xuLy8gV2UgaW5qZWN0IHRoZSBuZXh0Q29uZmlnT3V0cHV0IGhlcmUgc28gdGhhdCB3ZSBjYW4gdXNlIHRoZW0gaW4gdGhlIHJvdXRlXG4vLyBtb2R1bGUuXG5jb25zdCBuZXh0Q29uZmlnT3V0cHV0ID0gXCJcIlxuY29uc3Qgcm91dGVNb2R1bGUgPSBuZXcgQXBwUm91dGVSb3V0ZU1vZHVsZSh7XG4gICAgZGVmaW5pdGlvbjoge1xuICAgICAgICBraW5kOiBSb3V0ZUtpbmQuQVBQX1JPVVRFLFxuICAgICAgICBwYWdlOiBcIi9tYW5pZmVzdC53ZWJtYW5pZmVzdC9yb3V0ZVwiLFxuICAgICAgICBwYXRobmFtZTogXCIvbWFuaWZlc3Qud2VibWFuaWZlc3RcIixcbiAgICAgICAgZmlsZW5hbWU6IFwibWFuaWZlc3RcIixcbiAgICAgICAgYnVuZGxlUGF0aDogXCJhcHAvbWFuaWZlc3Qud2VibWFuaWZlc3Qvcm91dGVcIlxuICAgIH0sXG4gICAgcmVzb2x2ZWRQYWdlUGF0aDogXCJuZXh0LW1ldGFkYXRhLXJvdXRlLWxvYWRlcj9maWxlUGF0aD0lMkZVc2VycyUyRmFiaGlzaGVrYWduaWhvdHJpJTJGYWJoaXNoZWslMjBwcm9qZWN0JTJGR2l0SHViJTJGcG9ydGZvbGlvJTJGYXBwJTJGbWFuaWZlc3QudHMmaXNEeW5hbWljUm91dGVFeHRlbnNpb249MSE/X19uZXh0X21ldGFkYXRhX3JvdXRlX19cIixcbiAgICBuZXh0Q29uZmlnT3V0cHV0LFxuICAgIHVzZXJsYW5kXG59KTtcbi8vIFB1bGwgb3V0IHRoZSBleHBvcnRzIHRoYXQgd2UgbmVlZCB0byBleHBvc2UgZnJvbSB0aGUgbW9kdWxlLiBUaGlzIHNob3VsZFxuLy8gYmUgZWxpbWluYXRlZCB3aGVuIHdlJ3ZlIG1vdmVkIHRoZSBvdGhlciByb3V0ZXMgdG8gdGhlIG5ldyBmb3JtYXQuIFRoZXNlXG4vLyBhcmUgdXNlZCB0byBob29rIGludG8gdGhlIHJvdXRlLlxuY29uc3QgeyB3b3JrQXN5bmNTdG9yYWdlLCB3b3JrVW5pdEFzeW5jU3RvcmFnZSwgc2VydmVySG9va3MgfSA9IHJvdXRlTW9kdWxlO1xuZnVuY3Rpb24gcGF0Y2hGZXRjaCgpIHtcbiAgICByZXR1cm4gX3BhdGNoRmV0Y2goe1xuICAgICAgICB3b3JrQXN5bmNTdG9yYWdlLFxuICAgICAgICB3b3JrVW5pdEFzeW5jU3RvcmFnZVxuICAgIH0pO1xufVxuZXhwb3J0IHsgcm91dGVNb2R1bGUsIHdvcmtBc3luY1N0b3JhZ2UsIHdvcmtVbml0QXN5bmNTdG9yYWdlLCBzZXJ2ZXJIb29rcywgcGF0Y2hGZXRjaCwgIH07XG5cbi8vIyBzb3VyY2VNYXBwaW5nVVJMPWFwcC1yb3V0ZS5qcy5tYXAiXSwibmFtZXMiOltdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fmanifest.webmanifest%2Froute&page=%2Fmanifest.webmanifest%2Froute&appPaths=&pagePath=private-next-app-dir%2Fmanifest.ts&appDir=%2FUsers%2Fabhishekagnihotri%2Fabhishek%20project%2FGitHub%2Fportfolio%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2FUsers%2Fabhishekagnihotri%2Fabhishek%20project%2FGitHub%2Fportfolio&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!\n");
-
-/***/ }),
-
-/***/ "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?server=true!":
-/*!******************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?server=true! ***!
-  \******************************************************************************************************/
-/***/ (() => {
-
-
-
-/***/ }),
-
-/***/ "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-metadata-route-loader.js?filePath=%2FUsers%2Fabhishekagnihotri%2Fabhishek%20project%2FGitHub%2Fportfolio%2Fapp%2Fmanifest.ts&isDynamicRouteExtension=1!?__next_metadata_route__":
-/*!*******************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-metadata-route-loader.js?filePath=%2FUsers%2Fabhishekagnihotri%2Fabhishek%20project%2FGitHub%2Fportfolio%2Fapp%2Fmanifest.ts&isDynamicRouteExtension=1!?__next_metadata_route__ ***!
-  \*******************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   GET: () => (/* binding */ GET)\n/* harmony export */ });\n/* harmony import */ var next_server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/server */ \"(rsc)/./node_modules/next/dist/api/server.js\");\n/* harmony import */ var _Users_abhishekagnihotri_abhishek_project_GitHub_portfolio_app_manifest_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app/manifest.ts */ \"(rsc)/./app/manifest.ts\");\n/* harmony import */ var next_dist_build_webpack_loaders_metadata_resolve_route_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/dist/build/webpack/loaders/metadata/resolve-route-data */ \"(rsc)/./node_modules/next/dist/build/webpack/loaders/metadata/resolve-route-data.js\");\n/* harmony import */ var next_dist_build_webpack_loaders_metadata_resolve_route_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dist_build_webpack_loaders_metadata_resolve_route_data__WEBPACK_IMPORTED_MODULE_2__);\n/* dynamic asset route */\n\n\n\n\nconst contentType = \"application/manifest+json\"\nconst fileType = \"manifest\"\n\n\n  if (typeof _Users_abhishekagnihotri_abhishek_project_GitHub_portfolio_app_manifest_ts__WEBPACK_IMPORTED_MODULE_1__[\"default\"] !== 'function') {\n    throw new Error('Default export is missing in \"/Users/abhishekagnihotri/abhishek project/GitHub/portfolio/app/manifest.ts\"')\n  }\n  \n\n\nasync function GET() {\n  const data = await (0,_Users_abhishekagnihotri_abhishek_project_GitHub_portfolio_app_manifest_ts__WEBPACK_IMPORTED_MODULE_1__[\"default\"])()\n  const content = (0,next_dist_build_webpack_loaders_metadata_resolve_route_data__WEBPACK_IMPORTED_MODULE_2__.resolveRouteData)(data, fileType)\n\n  return new next_server__WEBPACK_IMPORTED_MODULE_0__.NextResponse(content, {\n    headers: {\n      'Content-Type': contentType,\n      'Cache-Control': \"public, max-age=0, must-revalidate\",\n    },\n  })\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2J1aWxkL3dlYnBhY2svbG9hZGVycy9uZXh0LW1ldGFkYXRhLXJvdXRlLWxvYWRlci5qcz9maWxlUGF0aD0lMkZVc2VycyUyRmFiaGlzaGVrYWduaWhvdHJpJTJGYWJoaXNoZWslMjBwcm9qZWN0JTJGR2l0SHViJTJGcG9ydGZvbGlvJTJGYXBwJTJGbWFuaWZlc3QudHMmaXNEeW5hbWljUm91dGVFeHRlbnNpb249MSE/X19uZXh0X21ldGFkYXRhX3JvdXRlX18iLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7QUFBQTtBQUMwQztBQUNzRDtBQUNGOztBQUU5RjtBQUNBOzs7QUFHQSxhQUFhLGtIQUFPO0FBQ3BCO0FBQ0E7QUFDQTs7O0FBR087QUFDUCxxQkFBcUIsc0hBQU87QUFDNUIsa0JBQWtCLDZHQUFnQjs7QUFFbEMsYUFBYSxxREFBWTtBQUN6QjtBQUNBO0FBQ0E7QUFDQSxLQUFLO0FBQ0wsR0FBRztBQUNIIiwic291cmNlcyI6WyI/X19uZXh0X21ldGFkYXRhX3JvdXRlX18iXSwic291cmNlc0NvbnRlbnQiOlsiLyogZHluYW1pYyBhc3NldCByb3V0ZSAqL1xuaW1wb3J0IHsgTmV4dFJlc3BvbnNlIH0gZnJvbSAnbmV4dC9zZXJ2ZXInXG5pbXBvcnQgaGFuZGxlciBmcm9tIFwiL1VzZXJzL2FiaGlzaGVrYWduaWhvdHJpL2FiaGlzaGVrIHByb2plY3QvR2l0SHViL3BvcnRmb2xpby9hcHAvbWFuaWZlc3QudHNcIlxuaW1wb3J0IHsgcmVzb2x2ZVJvdXRlRGF0YSB9IGZyb20gJ25leHQvZGlzdC9idWlsZC93ZWJwYWNrL2xvYWRlcnMvbWV0YWRhdGEvcmVzb2x2ZS1yb3V0ZS1kYXRhJ1xuXG5jb25zdCBjb250ZW50VHlwZSA9IFwiYXBwbGljYXRpb24vbWFuaWZlc3QranNvblwiXG5jb25zdCBmaWxlVHlwZSA9IFwibWFuaWZlc3RcIlxuXG5cbiAgaWYgKHR5cGVvZiBoYW5kbGVyICE9PSAnZnVuY3Rpb24nKSB7XG4gICAgdGhyb3cgbmV3IEVycm9yKCdEZWZhdWx0IGV4cG9ydCBpcyBtaXNzaW5nIGluIFwiL1VzZXJzL2FiaGlzaGVrYWduaWhvdHJpL2FiaGlzaGVrIHByb2plY3QvR2l0SHViL3BvcnRmb2xpby9hcHAvbWFuaWZlc3QudHNcIicpXG4gIH1cbiAgXG5cblxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIEdFVCgpIHtcbiAgY29uc3QgZGF0YSA9IGF3YWl0IGhhbmRsZXIoKVxuICBjb25zdCBjb250ZW50ID0gcmVzb2x2ZVJvdXRlRGF0YShkYXRhLCBmaWxlVHlwZSlcblxuICByZXR1cm4gbmV3IE5leHRSZXNwb25zZShjb250ZW50LCB7XG4gICAgaGVhZGVyczoge1xuICAgICAgJ0NvbnRlbnQtVHlwZSc6IGNvbnRlbnRUeXBlLFxuICAgICAgJ0NhY2hlLUNvbnRyb2wnOiBcInB1YmxpYywgbWF4LWFnZT0wLCBtdXN0LXJldmFsaWRhdGVcIixcbiAgICB9LFxuICB9KVxufVxuIl0sIm5hbWVzIjpbXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(rsc)/./node_modules/next/dist/build/webpack/loaders/next-metadata-route-loader.js?filePath=%2FUsers%2Fabhishekagnihotri%2Fabhishek%20project%2FGitHub%2Fportfolio%2Fapp%2Fmanifest.ts&isDynamicRouteExtension=1!?__next_metadata_route__\n");
-
-/***/ }),
-
-/***/ "(ssr)/./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?server=true!":
-/*!******************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?server=true! ***!
-  \******************************************************************************************************/
-/***/ (() => {
-
-
-
-/***/ }),
-
-/***/ "../app-render/after-task-async-storage.external":
-/*!***********************************************************************************!*\
-  !*** external "next/dist/server/app-render/after-task-async-storage.external.js" ***!
-  \***********************************************************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/server/app-render/after-task-async-storage.external.js");
-
-/***/ }),
-
-/***/ "../app-render/work-async-storage.external":
-/*!*****************************************************************************!*\
-  !*** external "next/dist/server/app-render/work-async-storage.external.js" ***!
-  \*****************************************************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/server/app-render/work-async-storage.external.js");
-
-/***/ }),
-
-/***/ "./work-unit-async-storage.external":
-/*!**********************************************************************************!*\
-  !*** external "next/dist/server/app-render/work-unit-async-storage.external.js" ***!
-  \**********************************************************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/server/app-render/work-unit-async-storage.external.js");
-
-/***/ }),
-
-/***/ "next/dist/compiled/next-server/app-page.runtime.dev.js":
-/*!*************************************************************************!*\
-  !*** external "next/dist/compiled/next-server/app-page.runtime.dev.js" ***!
-  \*************************************************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/compiled/next-server/app-page.runtime.dev.js");
-
-/***/ }),
-
-/***/ "next/dist/compiled/next-server/app-route.runtime.dev.js":
-/*!**************************************************************************!*\
-  !*** external "next/dist/compiled/next-server/app-route.runtime.dev.js" ***!
-  \**************************************************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("next/dist/compiled/next-server/app-route.runtime.dev.js");
-
-/***/ })
-
-};
-;
-
-// load runtime
-var __webpack_require__ = require("../../webpack-runtime.js");
-__webpack_require__.C(exports);
-var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fmanifest.webmanifest%2Froute&page=%2Fmanifest.webmanifest%2Froute&appPaths=&pagePath=private-next-app-dir%2Fmanifest.ts&appDir=%2FUsers%2Fabhishekagnihotri%2Fabhishek%20project%2FGitHub%2Fportfolio%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2FUsers%2Fabhishekagnihotri%2Fabhishek%20project%2FGitHub%2Fportfolio&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!")));
-module.exports = __webpack_exports__;
-
-})();
+(()=>{var e={};e.id=337,e.ids=[337],e.modules={846:e=>{"use strict";e.exports=require("next/dist/compiled/next-server/app-page.runtime.prod.js")},2127:(e,t,i)=>{"use strict";Object.defineProperty(t,"__esModule",{value:!0}),!function(e,t){for(var i in t)Object.defineProperty(e,i,{enumerable:!0,get:t[i]})}(t,{resolveManifest:function(){return a},resolveRobots:function(){return o},resolveRouteData:function(){return s},resolveSitemap:function(){return n}});let r=i(7341);function o(e){let t="";for(let i of Array.isArray(e.rules)?e.rules:[e.rules]){for(let e of(0,r.resolveArray)(i.userAgent||["*"]))t+=`User-Agent: ${e}
+`;if(i.allow)for(let e of(0,r.resolveArray)(i.allow))t+=`Allow: ${e}
+`;if(i.disallow)for(let e of(0,r.resolveArray)(i.disallow))t+=`Disallow: ${e}
+`;i.crawlDelay&&(t+=`Crawl-delay: ${i.crawlDelay}
+`),t+="\n"}return e.host&&(t+=`Host: ${e.host}
+`),e.sitemap&&(0,r.resolveArray)(e.sitemap).forEach(e=>{t+=`Sitemap: ${e}
+`}),t}function n(e){let t=e.some(e=>Object.keys(e.alternates??{}).length>0),i=e.some(e=>{var t;return!!(null==(t=e.images)?void 0:t.length)}),r=e.some(e=>{var t;return!!(null==(t=e.videos)?void 0:t.length)}),o="";for(let l of(o+='<?xml version="1.0" encoding="UTF-8"?>\n',o+='<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',i&&(o+=' xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"'),r&&(o+=' xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"'),t?o+=' xmlns:xhtml="http://www.w3.org/1999/xhtml">\n':o+=">\n",e)){var n,a,s;o+="<url>\n",o+=`<loc>${l.url}</loc>
+`;let e=null==(n=l.alternates)?void 0:n.languages;if(e&&Object.keys(e).length)for(let t in e)o+=`<xhtml:link rel="alternate" hreflang="${t}" href="${e[t]}" />
+`;if(null==(a=l.images)?void 0:a.length)for(let e of l.images)o+=`<image:image>
+<image:loc>${e}</image:loc>
+</image:image>
+`;if(null==(s=l.videos)?void 0:s.length)for(let e of l.videos)o+=["<video:video>",`<video:title>${e.title}</video:title>`,`<video:thumbnail_loc>${e.thumbnail_loc}</video:thumbnail_loc>`,`<video:description>${e.description}</video:description>`,e.content_loc&&`<video:content_loc>${e.content_loc}</video:content_loc>`,e.player_loc&&`<video:player_loc>${e.player_loc}</video:player_loc>`,e.duration&&`<video:duration>${e.duration}</video:duration>`,e.view_count&&`<video:view_count>${e.view_count}</video:view_count>`,e.tag&&`<video:tag>${e.tag}</video:tag>`,e.rating&&`<video:rating>${e.rating}</video:rating>`,e.expiration_date&&`<video:expiration_date>${e.expiration_date}</video:expiration_date>`,e.publication_date&&`<video:publication_date>${e.publication_date}</video:publication_date>`,e.family_friendly&&`<video:family_friendly>${e.family_friendly}</video:family_friendly>`,e.requires_subscription&&`<video:requires_subscription>${e.requires_subscription}</video:requires_subscription>`,e.live&&`<video:live>${e.live}</video:live>`,e.restriction&&`<video:restriction relationship="${e.restriction.relationship}">${e.restriction.content}</video:restriction>`,e.platform&&`<video:platform relationship="${e.platform.relationship}">${e.platform.content}</video:platform>`,e.uploader&&`<video:uploader${e.uploader.info&&` info="${e.uploader.info}"`}>${e.uploader.content}</video:uploader>`,`</video:video>
+`].filter(Boolean).join("\n");if(l.lastModified){let e=l.lastModified instanceof Date?l.lastModified.toISOString():l.lastModified;o+=`<lastmod>${e}</lastmod>
+`}l.changeFrequency&&(o+=`<changefreq>${l.changeFrequency}</changefreq>
+`),"number"==typeof l.priority&&(o+=`<priority>${l.priority}</priority>
+`),o+="</url>\n"}return o+"</urlset>\n"}function a(e){return JSON.stringify(e)}function s(e,t){return"robots"===t?o(e):"sitemap"===t?n(e):"manifest"===t?a(e):""}},3033:e=>{"use strict";e.exports=require("next/dist/server/app-render/work-unit-async-storage.external.js")},3295:e=>{"use strict";e.exports=require("next/dist/server/app-render/after-task-async-storage.external.js")},4870:e=>{"use strict";e.exports=require("next/dist/compiled/next-server/app-route.runtime.prod.js")},6487:()=>{},7341:(e,t)=>{"use strict";function i(e){return Array.isArray(e)?e:[e]}function r(e){if(null!=e)return i(e)}function o(e){let t;if("string"==typeof e)try{t=(e=new URL(e)).origin}catch{}return t}Object.defineProperty(t,"__esModule",{value:!0}),!function(e,t){for(var i in t)Object.defineProperty(e,i,{enumerable:!0,get:t[i]})}(t,{getOrigin:function(){return o},resolveArray:function(){return i},resolveAsArrayOrUndefined:function(){return r}})},7806:(e,t,i)=>{"use strict";i.r(t),i.d(t,{patchFetch:()=>v,routeModule:()=>d,serverHooks:()=>f,workAsyncStorage:()=>c,workUnitAsyncStorage:()=>p});var r={};i.r(r),i.d(r,{GET:()=>u});var o=i(6559),n=i(8088),a=i(7719),s=i(2190),l=i(2127);async function u(){let e=await {name:"Abhishek Agnihotri — Software Developer",short_name:"AA Dev",description:"Software Developer specializing in React, Next.js, TypeScript & AI integration. Available for freelance projects.",start_url:"/",display:"standalone",background_color:"#0a0a0f",theme_color:"#0a0a0f",icons:[{src:"/apple-icon",sizes:"180x180",type:"image/png"},{src:"/icon",sizes:"32x32",type:"image/png"}]},t=(0,l.resolveRouteData)(e,"manifest");return new s.NextResponse(t,{headers:{"Content-Type":"application/manifest+json","Cache-Control":"public, max-age=0, must-revalidate"}})}let d=new o.AppRouteRouteModule({definition:{kind:n.RouteKind.APP_ROUTE,page:"/manifest.webmanifest/route",pathname:"/manifest.webmanifest",filename:"manifest",bundlePath:"app/manifest.webmanifest/route"},resolvedPagePath:"next-metadata-route-loader?filePath=%2FUsers%2Fabhishekagnihotri%2Fabhishek%20project%2FGitHub%2Fportfolio%2Fapp%2Fmanifest.ts&isDynamicRouteExtension=1!?__next_metadata_route__",nextConfigOutput:"",userland:r}),{workAsyncStorage:c,workUnitAsyncStorage:p,serverHooks:f}=d;function v(){return(0,a.patchFetch)({workAsyncStorage:c,workUnitAsyncStorage:p})}},8335:()=>{},9294:e=>{"use strict";e.exports=require("next/dist/server/app-render/work-async-storage.external.js")}};var t=require("../../webpack-runtime.js");t.C(e);var i=e=>t(t.s=e),r=t.X(0,[447,580],()=>i(7806));module.exports=r})();

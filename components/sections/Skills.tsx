@@ -37,6 +37,26 @@ export default function Skills() {
           Skills &amp; Stack
         </motion.h2>
 
+        {/* AI skills callout */}
+        <motion.div
+          className="flex flex-wrap items-center gap-3 mb-16 p-4 rounded-xl border border-purple-500/20 bg-purple-500/5"
+          initial={reduce ? {} : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+        >
+          <span className="text-xs font-mono text-purple-400 tracking-widest uppercase shrink-0">AI</span>
+          <div className="w-px h-3 bg-purple-500/30 shrink-0" aria-hidden="true" />
+          {skills.filter(s => s.category === "ai").map(s => (
+            <span
+              key={s.id}
+              className="px-3 py-1 text-xs font-mono border border-purple-500/30 text-purple-300 rounded-full bg-purple-500/8 hover:border-purple-400/60 transition-colors duration-200"
+            >
+              {s.name}
+            </span>
+          ))}
+        </motion.div>
+
         <div className="flex flex-col lg:flex-row items-center gap-16">
           {/* Orbit */}
           <motion.div

@@ -46,11 +46,11 @@ export const experiences: Experience[] = [
   {
     id: "4",
     company: "Freelance",
-    role: "Frontend Developer",
+    role: "Software Developer",
     start: "May 2025",
     end: "Present",
     description:
-      "Working independently with clients on React, Next.js, and TypeScript projects. Building performant, SEO-optimized web applications tailored to each client's goals.",
+      "Working independently with clients on React, Next.js, TypeScript, and AI-integrated projects. Building performant, SEO-optimized web applications and leveraging AI APIs to deliver smarter user experiences.",
     type: "freelance",
     current: true,
   },
@@ -116,6 +116,10 @@ export const skills: Skill[] = [
   { id: "10", name: "Express", category: "backend" },
   { id: "11", name: "HTML5", category: "frontend" },
   { id: "12", name: "CSS3", category: "frontend" },
+  { id: "13", name: "OpenAI API", category: "ai" },
+  { id: "14", name: "AI Integration", category: "ai" },
+  { id: "15", name: "Prompt Engineering", category: "ai" },
+  { id: "16", name: "Vercel AI SDK", category: "ai" },
 ];
 
 export const techStack: string[] = [
@@ -129,6 +133,10 @@ export const techStack: string[] = [
   "GraphQL",
   "MongoDB",
   "Express",
+  "OpenAI API",
+  "AI Integration",
+  "Prompt Engineering",
+  "Vercel AI SDK",
   "Framer Motion",
   "Three.js",
   "Git",
@@ -150,9 +158,9 @@ export const socialLinks = {
 
 export const siteConfig = {
   name: "Abhishek Agnihotri",
-  title: "Abhishek Agnihotri | Frontend Developer",
+  title: "Abhishek Agnihotri | Software Developer",
   description:
-    "Experienced Frontend Developer specializing in React, Next.js, and TypeScript. Available for freelance projects.",
+    "Software Developer with 4+ years of experience in React, Next.js, TypeScript & AI integration. Building performant web applications. Available for freelance projects.",
   url: "https://abhishek-agnihotri.vercel.app",
   careerStartYear: 2021,
 };

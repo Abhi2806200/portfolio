@@ -59,8 +59,8 @@ export default function Image() {
         >
           Abhishek Agnihotri
         </div>
-        <div style={{ color: "#6b6b7b", fontSize: 28 }}>
-          Frontend Developer · React · Next.js · TypeScript
+        <div style={{ color: "#6b6b7b", fontSize: 26 }}>
+          Software Developer · React · Next.js · AI Integration
         </div>
       </div>
     ),

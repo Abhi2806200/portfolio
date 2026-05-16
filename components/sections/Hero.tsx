@@ -89,7 +89,7 @@ export default function Hero() {
         >
           <span className="w-6 h-px bg-accent" aria-hidden="true" />
           <span className="text-accent font-mono text-xs tracking-[0.35em] uppercase">
-            Frontend Developer
+            Software Developer
           </span>
           <span className="w-6 h-px bg-accent" aria-hidden="true" />
         </motion.div>

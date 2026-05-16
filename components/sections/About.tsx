@@ -46,22 +46,22 @@ export default function About() {
             </h2>
 
             <p className="text-lg text-text-muted font-body leading-relaxed">
-              I&apos;m a frontend developer who turns complex ideas into seamless digital
+              I&apos;m a software developer who turns complex ideas into seamless digital
               experiences. With{" "}
               <span className="text-text-primary font-medium">{yearsExp}+ years</span> of
               hands-on work at Antier Solutions and now as a freelancer, I care deeply about
-              performance, accessibility, and the details that make an interface feel alive.
+              performance, accessibility, and the details that make a product feel alive.
             </p>
 
             <p className="text-base text-text-muted font-body leading-relaxed">
-              Currently taking on freelance projects — especially where design and engineering
-              intersect. I&apos;ve built everything from blockchain platforms to real-time trading
-              bots, and I bring the same level of craft to every one.
+              Currently taking on freelance projects — from blockchain platforms and real-time
+              trading bots to AI-integrated web applications. I bring the same level of craft
+              to every project, no matter the scale.
             </p>
 
             {/* Skill pills */}
             <div className="flex flex-wrap gap-2 pt-2">
-              {["React", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "GraphQL", "Framer Motion"].map((s) => (
+              {["React", "Next.js", "TypeScript", "Tailwind CSS", "OpenAI API", "AI Integration", "Node.js"].map((s) => (
                 <span
                   key={s}
                   className="px-3 py-1.5 text-xs font-mono border border-accent/20 text-accent/80 rounded-full bg-accent/5 hover:border-accent/50 transition-colors duration-200"
@@ -83,7 +83,7 @@ export default function About() {
             <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-white/5 border border-white/8 shadow-[0_0_60px_rgba(0,245,255,0.04)]">
               <Image
                 src="/assets/heroImage.png"
-                alt="Abhishek Agnihotri — Frontend Developer"
+                alt="Abhishek Agnihotri — Software Developer"
                 fill
                 className="object-cover object-top"
                 sizes="(max-width: 1024px) 100vw, 40vw"

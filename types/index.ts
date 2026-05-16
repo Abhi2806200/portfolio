@@ -23,7 +23,7 @@ export interface Experience {
 export interface Skill {
   id: string;
   name: string;
-  category: "frontend" | "backend" | "tools";
+  category: "frontend" | "backend" | "ai" | "tools";
 }
 
 export interface NavItem {

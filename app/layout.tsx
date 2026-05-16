@@ -43,19 +43,24 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: [
     "Abhishek Agnihotri",
-    "Frontend Developer",
+    "Software Developer",
     "React Developer",
     "Next.js Developer",
     "TypeScript Developer",
-    "Freelance Frontend Developer India",
-    "Web Developer",
+    "AI Integration Developer",
+    "Freelance Software Developer",
+    "Freelance Developer India",
+    "Web Developer India",
+    "Full Stack Developer",
     "JavaScript Developer",
-    "UI Developer",
-    "Antier Solutions",
+    "OpenAI API Developer",
+    "Prompt Engineering",
+    "Frontend Developer",
     "Portfolio",
   ],
   authors: [{ name: "Abhishek Agnihotri", url: siteConfig.url }],
   creator: "Abhishek Agnihotri",
+  publisher: "Abhishek Agnihotri",
   alternates: {
     canonical: siteConfig.url,
   },
@@ -71,7 +76,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Abhishek Agnihotri — Frontend Developer",
+        alt: "Abhishek Agnihotri — Software Developer",
       },
     ],
   },
@@ -95,13 +100,16 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
+/* ── Structured data: Person + WebSite ── */
+const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${siteConfig.url}/#person`,
   name: "Abhishek Agnihotri",
-  jobTitle: "Frontend Developer",
+  jobTitle: "Software Developer",
   url: siteConfig.url,
   email: socialLinks.email,
+  image: `${siteConfig.url}/assets/heroImage.png`,
   description: siteConfig.description,
   sameAs: [socialLinks.linkedin, socialLinks.github, socialLinks.twitter],
   knowsAbout: [
@@ -109,11 +117,28 @@ const jsonLd = {
     "Next.js",
     "TypeScript",
     "JavaScript",
+    "Node.js",
+    "AI Integration",
+    "OpenAI API",
+    "Prompt Engineering",
+    "GraphQL",
     "Tailwind CSS",
-    "Frontend Development",
     "Web Development",
+    "Software Development",
   ],
   worksFor: { "@type": "Organization", name: "Freelance" },
+  address: { "@type": "PostalAddress", addressCountry: "IN" },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteConfig.url}/#website`,
+  name: "Abhishek Agnihotri — Software Developer Portfolio",
+  url: siteConfig.url,
+  description: siteConfig.description,
+  author: { "@id": `${siteConfig.url}/#person` },
+  inLanguage: "en-US",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -126,7 +151,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
       <body className="bg-background text-text-primary font-body antialiased">

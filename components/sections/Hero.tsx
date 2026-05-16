@@ -1,147 +1,154 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { motion, useReducedMotion } from "framer-motion";
-import { FiChevronDown } from "react-icons/fi";
-import Button from "@/components/ui/Button";
-
-const HeroCanvas = dynamic(() => import("./HeroCanvas"), { ssr: false });
-
-const NAME = "Abhishek";
-const SURNAME = "Agnihotri";
-
-const letterVariants = {
-  hidden: { y: 100, opacity: 0 },
-  visible: (i: number) => ({
-    y: 0,
-    opacity: 1,
-    transition: { delay: i * 0.04, duration: 0.7 },
-  }),
-};
-
-function AnimatedName({ text, delay = 0 }: { text: string; delay?: number }) {
-  return (
-    <>
-      {text.split("").map((char, i) => (
-        <motion.span
-          key={i}
-          custom={i + delay}
-          variants={letterVariants}
-          initial="hidden"
-          animate="visible"
-          style={{ display: "inline-block" }}
-        >
-          {char}
-        </motion.span>
-      ))}
-    </>
-  );
-}
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { FiArrowRight, FiGithub, FiLinkedin } from "react-icons/fi";
+import { socialLinks, siteConfig } from "@/lib/data";
+import { AnimateLines, Line } from "@/components/ui/AnimateLines";
+import { SplitText } from "@/components/ui/SplitText";
 
 export default function Hero() {
-  const reduce = useReducedMotion();
+  const years = new Date().getFullYear() - siteConfig.careerStartYear;
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      aria-label="Hero section"
+      className="relative min-h-screen flex items-center bg-transparent pt-20 pb-16"
     >
-      {/* Layer 1 — CSS aurora blobs (instant render, no JS) */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div
-          className="absolute rounded-full animate-blob-1"
-          style={{
-            width: 700, height: 700, top: -220, left: -220,
-            background: "radial-gradient(circle at 50% 50%, rgba(0,245,255,0.16) 0%, transparent 65%)",
-            filter: "blur(90px)",
-          }}
-        />
-        <div
-          className="absolute rounded-full animate-blob-2"
-          style={{
-            width: 620, height: 620, top: -160, right: -160,
-            background: "radial-gradient(circle at 50% 50%, rgba(107,33,168,0.28) 0%, transparent 65%)",
-            filter: "blur(80px)",
-          }}
-        />
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+          {/* ── Text side ── */}
+          <AnimateLines className="order-2 lg:order-1" stagger={0.14} amount={0.04}>
+
+            {/* Available badge */}
+            <Line>
+              <div className="inline-flex items-center gap-2 mb-8">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-pulse" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-green-400" />
+                </span>
+                <span className="text-xs font-mono text-green-400 tracking-widest uppercase">
+                  Available for hire
+                </span>
+              </div>
+            </Line>
+
+            {/* Name */}
+            <Line>
+              <h1 className="font-display font-bold leading-[1.05] tracking-tight mb-4">
+                <span
+                  className="block text-[clamp(2.8rem,7vw,5.5rem)]"
+                  style={{
+                    background: "linear-gradient(135deg, #ffffff 0%, #e2e8f0 30%, #94a3b8 65%, #64748b 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  Abhishek
+                </span>
+                <span
+                  className="block text-[clamp(2.8rem,7vw,5.5rem)]"
+                  style={{
+                    background: "linear-gradient(135deg, #cbd5e1 0%, #94a3b8 35%, #64748b 65%, #475569 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  Agnihotri
+                </span>
+              </h1>
+            </Line>
+
+            {/* Title */}
+            <Line>
+              <p className="text-base font-mono text-white/60 tracking-[0.3em] uppercase mb-6">
+                Software Developer
+              </p>
+            </Line>
+
+            {/* Bio — word by word */}
+            <Line>
+              <p className="text-lg text-white/75 font-body leading-relaxed mb-8 max-w-lg">
+                <SplitText speed={0.07} amount={0.04}>
+                  {`I build fast, modern web applications with React, Next.js, TypeScript and AI integration. ${years}+ years of turning complex problems into clean, production-ready products. Currently open to freelance.`}
+                </SplitText>
+              </p>
+            </Line>
+
+            {/* CTA buttons */}
+            <Line>
+              <div className="flex flex-wrap gap-4 mb-12">
+                <a
+                  href="#projects"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-semibold text-sm font-heading hover:bg-white/90 transition-colors duration-200"
+                >
+                  View My Work
+                  <FiArrowRight size={14} />
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/30 text-white font-semibold text-sm font-heading hover:border-white/60 hover:bg-white/8 transition-all duration-200"
+                >
+                  Get In Touch
+                </a>
+              </div>
+            </Line>
+
+            {/* Stats */}
+            <Line>
+              <div className="flex items-center gap-8 pt-8 border-t border-white/10">
+                <div>
+                  <p className="text-3xl font-heading font-bold text-white tabular-nums">{years}+</p>
+                  <p className="text-xs font-mono text-white/55 tracking-widest uppercase mt-1">Years Exp.</p>
+                </div>
+                <div className="w-px h-12 bg-white/15" />
+                <div>
+                  <p className="text-3xl font-heading font-bold text-white tabular-nums">10+</p>
+                  <p className="text-xs font-mono text-white/55 tracking-widest uppercase mt-1">Projects</p>
+                </div>
+                <div className="w-px h-12 bg-white/15" />
+                <div className="flex items-center gap-4">
+                  <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors duration-200" aria-label="GitHub">
+                    <FiGithub size={18} />
+                  </a>
+                  <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors duration-200" aria-label="LinkedIn">
+                    <FiLinkedin size={18} />
+                  </a>
+                </div>
+              </div>
+            </Line>
+
+          </AnimateLines>
+
+          {/* ── Photo side ── */}
+          <motion.div
+            className="order-1 lg:order-2 flex justify-center lg:justify-end"
+            initial={{ opacity: 0, scale: 0.92, filter: "blur(6px)" }}
+            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            viewport={{ once: false, amount: 0.05 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] as const }}
+          >
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-[420px] lg:h-[480px] rounded-2xl overflow-hidden border border-white/12 shadow-2xl">
+              <Image
+                src="/assets/heroImage.png"
+                alt="Abhishek Agnihotri"
+                fill
+                priority
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 320px, 420px"
+              />
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{ background: "linear-gradient(to top, rgba(10,10,10,0.5) 0%, transparent 50%)" }}
+              />
+            </div>
+          </motion.div>
+
+        </div>
       </div>
-
-      {/* Layer 2 — Three.js 3D scene (fog + particles + grid + shapes) */}
-      {!reduce && <HeroCanvas />}
-
-      {/* Bottom fade into next section */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
-        style={{
-          background: "linear-gradient(to bottom, transparent, #0a0a0f)",
-        }}
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        {/* Eyebrow */}
-        <motion.div
-          className="inline-flex items-center gap-3 mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          <span className="w-6 h-px bg-accent" aria-hidden="true" />
-          <span className="text-accent font-mono text-xs tracking-[0.35em] uppercase">
-            Software Developer
-          </span>
-          <span className="w-6 h-px bg-accent" aria-hidden="true" />
-        </motion.div>
-
-        {/* Name — two lines */}
-        <h1 className="font-heading font-bold leading-[0.92] mb-10 overflow-hidden" aria-label={`${NAME} ${SURNAME}`}>
-          <div className="text-[clamp(3.8rem,11vw,9rem)] text-text-primary">
-            <AnimatedName text={NAME} delay={0} />
-          </div>
-          <div className="text-[clamp(3.8rem,11vw,9rem)] text-transparent bg-clip-text bg-gradient-to-r from-accent via-[#80faff] to-accent bg-[length:200%_auto] animate-[gradient-border_6s_ease_infinite]">
-            <AnimatedName text={SURNAME} delay={NAME.length} />
-          </div>
-        </h1>
-
-        {/* Tagline */}
-        <motion.p
-          className="font-body text-base sm:text-lg text-text-muted mb-12 max-w-lg mx-auto leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.85 }}
-        >
-          Turning ideas into elegant digital experiences — open to freelance projects
-          <span className="text-accent animate-blink">.</span>
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          className="flex items-center justify-center gap-4 flex-wrap"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.05 }}
-        >
-          <Button variant="filled" href="#projects">
-            View Work
-          </Button>
-          <Button variant="ghost" href="#contact">
-            Let&apos;s Talk
-          </Button>
-        </motion.div>
-      </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-text-muted"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
-        aria-hidden="true"
-      >
-        <span className="text-[10px] font-mono tracking-[0.3em] uppercase">Scroll</span>
-        <FiChevronDown size={16} className="animate-bounce-y text-accent" />
-      </motion.div>
     </section>
   );
 }

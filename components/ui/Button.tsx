@@ -26,7 +26,7 @@ export default function Button({
 
   const variants = {
     filled:
-      "bg-accent text-background hover:bg-accent-dim hover:rounded-2xl hover:shadow-[0_0_24px_rgba(0,245,255,0.4)]",
+      "bg-accent text-background hover:bg-accent-dim hover:rounded-2xl hover:shadow-[0_0_24px_rgba(255,255,255,0.2)]",
     ghost:
       "border border-accent text-accent hover:bg-accent/10 hover:rounded-2xl",
   };

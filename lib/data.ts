@@ -160,7 +160,7 @@ export const siteConfig = {
   name: "Abhishek Agnihotri",
   title: "Abhishek Agnihotri | Software Developer — React & Next.js",
   description:
-    "Software Developer with 4+ years in React, Next.js, TypeScript & AI integration. Building fast, modern web apps. Open to freelance.",
+    "Abhishek Agnihotri is a Software Developer with 5+ years building fast, modern web apps using React, Next.js, TypeScript & AI integration. Based in India. Available for freelance projects worldwide.",
   url: "https://abhishek-agnihotri.vercel.app",
   careerStartYear: 2021,
 };

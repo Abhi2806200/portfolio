@@ -8,7 +8,7 @@ export default function AppleIcon() {
     (
       <div
         style={{
-          background: "#0a0a0f",
+          background: "#080808",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -25,14 +25,14 @@ export default function AppleIcon() {
             height: 140,
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(0,245,255,0.12) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%)",
           }}
         />
         {/* Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: 0, position: "relative" }}>
           <span
             style={{
-              color: "#00f5ff",
+              color: "#ffffff",
               fontSize: 70,
               fontWeight: 700,
               fontFamily: "sans-serif",
@@ -56,7 +56,7 @@ export default function AppleIcon() {
           </span>
           <span
             style={{
-              color: "#00f5ff",
+              color: "#ffffff",
               fontSize: 70,
               fontWeight: 700,
               fontFamily: "sans-serif",

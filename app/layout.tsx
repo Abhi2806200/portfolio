@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, DM_Sans, DM_Mono } from "next/font/google";
+import { Space_Grotesk, DM_Sans, DM_Mono, Oxanium } from "next/font/google";
 import { siteConfig, socialLinks } from "@/lib/data";
 import CursorProvider from "@/components/layout/CursorProvider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import BackgroundWrapper from "@/components/ui/BackgroundWrapper";
+import PageLoader from "@/components/ui/PageLoader";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -24,6 +26,13 @@ const dmMono = DM_Mono({
   subsets: ["latin"],
   variable: "--font-dm-mono",
   weight: ["400", "500"],
+  display: "swap",
+});
+
+const oxanium = Oxanium({
+  subsets: ["latin"],
+  variable: "--font-oxanium",
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -76,8 +85,8 @@ export const metadata: Metadata = {
         url: `${siteConfig.url}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: "Abhishek Agnihotri — Software Developer",
-        type: "image/png",
+        alt: "Abhishek Agnihotri — Software Developer | React & Next.js",
+        type: "image/jpeg",
       },
     ],
   },
@@ -144,7 +153,7 @@ const websiteSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${dmSans.variable} ${dmMono.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${dmSans.variable} ${dmMono.variable} ${oxanium.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -156,10 +165,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="bg-background text-text-primary font-body antialiased">
+        <PageLoader />
+        <BackgroundWrapper />
         <CursorProvider>
-          <Navbar />
-          {children}
-          <Footer />
+          <div className="relative z-10">
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
         </CursorProvider>
       </body>
     </html>

@@ -8,7 +8,7 @@ export default function Icon() {
     (
       <div
         style={{
-          background: "#0a0a0f",
+          background: "#080808",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -18,7 +18,7 @@ export default function Icon() {
       >
         <span
           style={{
-            color: "#00f5ff",
+            color: "#ffffff",
             fontSize: 18,
             fontWeight: 700,
             fontFamily: "sans-serif",
@@ -41,7 +41,7 @@ export default function Icon() {
         </span>
         <span
           style={{
-            color: "#00f5ff",
+            color: "#ffffff",
             fontSize: 18,
             fontWeight: 700,
             fontFamily: "sans-serif",

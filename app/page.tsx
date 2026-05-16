@@ -8,7 +8,7 @@ import Contact from "@/components/sections/Contact";
 export const dynamic = "force-static";
 
 const Projects = lazyLoad(() => import("@/components/sections/Projects"), {
-  loading: () => <div className="min-h-screen bg-background" />,
+  loading: () => <div className="min-h-[30vh] bg-background" />,
 });
 
 export default function Home() {

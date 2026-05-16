@@ -78,10 +78,10 @@ export default function Contact() {
             <button
               onClick={handleCopyEmail}
               aria-label={`Copy email address ${socialLinks.email}`}
-              className="group flex items-center gap-3 px-6 py-3.5 rounded-full border border-accent/30 bg-accent/5 text-text-primary font-mono text-sm hover:border-accent hover:bg-accent/10 transition-all duration-300"
+              className="group flex items-center gap-3 px-5 py-3 sm:px-6 sm:py-3.5 rounded-full border border-accent/30 bg-accent/5 text-text-primary font-mono text-xs sm:text-sm hover:border-accent hover:bg-accent/10 transition-all duration-300 max-w-full"
             >
-              {socialLinks.email}
-              <span className="text-accent transition-transform duration-200 group-hover:scale-110">
+              <span className="truncate">{socialLinks.email}</span>
+              <span className="text-accent transition-transform duration-200 group-hover:scale-110 shrink-0">
                 {copied ? <FiCheck size={15} /> : <FiCopy size={15} />}
               </span>
             </button>
@@ -89,7 +89,7 @@ export default function Contact() {
 
           {/* Social links */}
           <motion.div
-            className="flex items-center justify-center gap-6"
+            className="flex flex-wrap items-center justify-center gap-y-4 gap-x-5 sm:gap-x-6"
             initial={reduce ? {} : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -109,7 +109,7 @@ export default function Contact() {
               </span>
             </a>
 
-            <div className="w-px h-4 bg-white/10" aria-hidden="true" />
+            <div className="w-px h-4 bg-white/10 hidden sm:block" aria-hidden="true" />
 
             <a
               href={socialLinks.linkedin}
@@ -125,7 +125,7 @@ export default function Contact() {
               </span>
             </a>
 
-            <div className="w-px h-4 bg-white/10" aria-hidden="true" />
+            <div className="w-px h-4 bg-white/10 hidden sm:block" aria-hidden="true" />
 
             <a
               href={socialLinks.whatsapp}
@@ -141,10 +141,10 @@ export default function Contact() {
               </span>
             </a>
 
-            <div className="w-px h-4 bg-white/10" aria-hidden="true" />
+            <div className="w-px h-4 bg-white/10 hidden sm:block" aria-hidden="true" />
 
             <a
-              href={`/assets/abhishek_resume.pdf`}
+              href="/assets/abhishek_resume.pdf"
               download="Abhishek_Agnihotri_Resume.pdf"
               aria-label="Download Abhishek Agnihotri's resume"
               className="group flex items-center gap-2 text-text-muted hover:text-accent transition-colors duration-200 text-sm font-body"

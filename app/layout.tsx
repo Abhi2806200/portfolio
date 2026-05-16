@@ -73,10 +73,11 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "/opengraph-image",
+        url: `${siteConfig.url}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Abhishek Agnihotri — Software Developer",
+        type: "image/png",
       },
     ],
   },
@@ -85,7 +86,7 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     creator: "@Abhishe86339503",
-    images: ["/opengraph-image"],
+    images: [`${siteConfig.url}/opengraph-image`],
   },
   robots: {
     index: true,

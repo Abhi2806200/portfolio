@@ -158,9 +158,9 @@ export const socialLinks = {
 
 export const siteConfig = {
   name: "Abhishek Agnihotri",
-  title: "Abhishek Agnihotri | Software Developer",
+  title: "Abhishek Agnihotri | Software Developer — React & Next.js",
   description:
-    "Software Developer with 4+ years of experience in React, Next.js, TypeScript & AI integration. Building performant web applications. Available for freelance projects.",
+    "Software Developer with 4+ years in React, Next.js, TypeScript & AI integration. Building fast, modern web apps. Open to freelance.",
   url: "https://abhishek-agnihotri.vercel.app",
   careerStartYear: 2021,
 };

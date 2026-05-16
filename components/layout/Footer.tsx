@@ -3,6 +3,7 @@
 import { FiArrowUp } from "react-icons/fi";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
@@ -18,12 +19,12 @@ export default function Footer() {
           >
             Abhishek Agnihotri
           </a>{" "}
-          · 2025
+          · {year}
         </p>
         <button
           onClick={scrollToTop}
           aria-label="Scroll to top"
-          className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-text-muted hover:border-accent hover:text-accent transition-all duration-200"
+          className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-text-muted hover:border-accent hover:text-accent transition-all duration-300"
         >
           <FiArrowUp size={16} />
         </button>

@@ -11,11 +11,11 @@ const NAME = "Abhishek";
 const SURNAME = "Agnihotri";
 
 const letterVariants = {
-  hidden: { y: 80, opacity: 0 },
+  hidden: { y: 100, opacity: 0 },
   visible: (i: number) => ({
     y: 0,
     opacity: 1,
-    transition: { delay: i * 0.03, duration: 0.55 },
+    transition: { delay: i * 0.04, duration: 0.7 },
   }),
 };
 
@@ -49,54 +49,64 @@ export default function Hero() {
     >
       {/* Three.js canvas */}
       {!reduce && (
-        <div className="absolute inset-0 opacity-60">
+        <div className="absolute inset-0 opacity-50">
           <HeroCanvas />
         </div>
       )}
 
-      {/* Radial glow behind text */}
+      {/* Deep purple radial glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 50% 60%, rgba(107,33,168,0.18) 0%, transparent 70%)",
+            "radial-gradient(ellipse 70% 60% at 50% 70%, rgba(107,33,168,0.15) 0%, transparent 65%)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Bottom fade into next section */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
+        style={{
+          background: "linear-gradient(to bottom, transparent, #0a0a0f)",
         }}
         aria-hidden="true"
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         {/* Eyebrow */}
-        <motion.p
-          className="text-accent font-mono text-sm tracking-[0.3em] uppercase mb-6"
+        <motion.div
+          className="inline-flex items-center gap-3 mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Frontend Developer
-        </motion.p>
+          <span className="w-6 h-px bg-accent" aria-hidden="true" />
+          <span className="text-accent font-mono text-xs tracking-[0.35em] uppercase">
+            Frontend Developer
+          </span>
+          <span className="w-6 h-px bg-accent" aria-hidden="true" />
+        </motion.div>
 
         {/* Name — two lines */}
-        <h1 className="font-heading font-bold leading-[0.95] mb-8 overflow-hidden">
-          <div
-            className="text-[clamp(3.5rem,10vw,8.5rem)] text-text-primary"
-            aria-label={`${NAME} ${SURNAME}`}
-          >
+        <h1 className="font-heading font-bold leading-[0.92] mb-10 overflow-hidden" aria-label={`${NAME} ${SURNAME}`}>
+          <div className="text-[clamp(3.8rem,11vw,9rem)] text-text-primary">
             <AnimatedName text={NAME} delay={0} />
           </div>
-          <div className="text-[clamp(3.5rem,10vw,8.5rem)] text-transparent bg-clip-text bg-gradient-to-r from-accent via-white to-accent">
+          <div className="text-[clamp(3.8rem,11vw,9rem)] text-transparent bg-clip-text bg-gradient-to-r from-accent via-[#80faff] to-accent bg-[length:200%_auto] animate-[gradient-border_6s_ease_infinite]">
             <AnimatedName text={SURNAME} delay={NAME.length} />
           </div>
         </h1>
 
-        {/* Subtitle */}
+        {/* Tagline */}
         <motion.p
-          className="font-mono text-base sm:text-lg text-text-muted mb-10 flex items-center justify-center gap-0"
+          className="font-body text-base sm:text-lg text-text-muted mb-12 max-w-lg mx-auto leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.85 }}
         >
-          React · Next.js · TypeScript
-          <span className="text-accent animate-blink ml-0.5">|</span>
+          Turning ideas into elegant digital experiences — open to freelance projects
+          <span className="text-accent animate-blink">.</span>
         </motion.p>
 
         {/* CTAs */}
@@ -104,7 +114,7 @@ export default function Hero() {
           className="flex items-center justify-center gap-4 flex-wrap"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.0 }}
+          transition={{ duration: 0.6, delay: 1.05 }}
         >
           <Button variant="filled" href="#projects">
             View Work
@@ -117,14 +127,14 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-text-muted"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-text-muted"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 0.6 }}
+        transition={{ delay: 1.5, duration: 0.8 }}
         aria-hidden="true"
       >
-        <span className="text-xs font-mono tracking-widest uppercase">Scroll</span>
-        <FiChevronDown size={18} className="animate-bounce-y text-accent" />
+        <span className="text-[10px] font-mono tracking-[0.3em] uppercase">Scroll</span>
+        <FiChevronDown size={16} className="animate-bounce-y text-accent" />
       </motion.div>
     </section>
   );

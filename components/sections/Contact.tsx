@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { FiGithub, FiLinkedin, FiCopy, FiCheck } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { socialLinks } from "@/lib/data";
@@ -121,6 +122,22 @@ export default function Contact() {
               <span className="text-sm font-body relative">
                 LinkedIn
                 <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
+              </span>
+            </a>
+
+            <div className="w-px h-4 bg-white/10" aria-hidden="true" />
+
+            <a
+              href={socialLinks.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat on WhatsApp"
+              className="group flex items-center gap-2 text-text-muted hover:text-[#25D366] transition-colors duration-200"
+            >
+              <FaWhatsapp size={18} />
+              <span className="text-sm font-body relative">
+                WhatsApp
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#25D366] group-hover:w-full transition-all duration-300" />
               </span>
             </a>
 

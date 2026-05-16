@@ -12,23 +12,23 @@ export const navItems: NavItem[] = [
 export const experiences: Experience[] = [
   {
     id: "1",
-    company: "Independent",
+    company: "Antier Solutions",
     role: "Intern Developer",
     start: "2021",
     end: "2022",
     description:
-      "Built responsive web pages using HTML, CSS, and JavaScript. Gained hands-on experience with version control using Git and GitHub.",
+      "Built responsive web pages using HTML, CSS, and JavaScript. Gained hands-on experience with Git, version control, and working within a professional engineering team.",
     type: "internship",
     current: false,
   },
   {
     id: "2",
-    company: "Independent",
+    company: "Antier Solutions",
     role: "Assistant Software Developer",
     start: "2022",
     end: "2023",
     description:
-      "Developed dynamic web applications using React and Redux. Collaborated with backend developers to integrate RESTful APIs and enhanced user experience.",
+      "Developed dynamic web applications using React and Redux. Collaborated with backend developers to integrate RESTful APIs and continuously improved user experience.",
     type: "full-time",
     current: false,
   },
@@ -37,9 +37,9 @@ export const experiences: Experience[] = [
     company: "Antier Solutions",
     role: "Frontend Developer",
     start: "2023",
-    end: "June 2024",
+    end: "May 2025",
     description:
-      "Led frontend development projects with React, Next.js, and TypeScript. Implemented performance best practices, conducted code reviews, and mentored junior developers.",
+      "Led frontend development using React, Next.js, and TypeScript. Implemented performance best practices, conducted code reviews, and mentored junior developers on the team.",
     type: "full-time",
     current: false,
   },
@@ -47,10 +47,10 @@ export const experiences: Experience[] = [
     id: "4",
     company: "Freelance",
     role: "Frontend Developer",
-    start: "June 2024",
+    start: "May 2025",
     end: "Present",
     description:
-      "Working independently with clients on React, Next.js, and TypeScript projects. Building performant, SEO-optimized web applications tailored to client goals.",
+      "Working independently with clients on React, Next.js, and TypeScript projects. Building performant, SEO-optimized web applications tailored to each client's goals.",
     type: "freelance",
     current: true,
   },
@@ -72,7 +72,7 @@ export const projects: Project[] = [
     id: "2",
     title: "Raging Bull Trading Bot",
     description:
-      "A Telegram-based algorithmic trading bot delivering real-time market analysis and automated signal notifications.",
+      "A Telegram-based algorithmic trading bot delivering real-time market analysis and automated signal notifications to active traders.",
     tech: ["Node.js", "Telegram API", "React"],
     liveUrl: "https://t.me/raging_bull_ant_dev_bot?start=",
     repoUrl: null,
@@ -83,7 +83,7 @@ export const projects: Project[] = [
     id: "3",
     title: "Deeply Nested Form",
     description:
-      "A React deep-dive showcasing complex form handling with dynamic nested structures, live validation, and clean state patterns.",
+      "A React deep-dive showcasing complex form handling with dynamic nested structures, live validation, and clean state management patterns.",
     tech: ["React", "TypeScript", "Tailwind CSS"],
     liveUrl: "https://deeply-nested-form.vercel.app/",
     repoUrl: null,
@@ -94,7 +94,7 @@ export const projects: Project[] = [
     id: "4",
     title: "Three.js Experiment",
     description:
-      "Interactive 3D visualization with real-time WebGL rendering and mouse-reactive animations demonstrating immersive browser experiences.",
+      "Interactive 3D visualization with real-time WebGL rendering and mouse-reactive animations — an exploration of immersive browser experiences.",
     tech: ["Three.js", "JavaScript", "WebGL"],
     liveUrl: "https://three-js-example-nine.vercel.app/",
     repoUrl: null,
@@ -143,7 +143,9 @@ export const socialLinks = {
   linkedin: "https://www.linkedin.com/in/abhishek-agnihotri-b46039165/",
   twitter: "https://twitter.com/Abhishe86339503",
   email: "abhishekagni2806@gmail.com",
-  whatsapp: "https://wa.me/918219071272",
+  whatsapp: `https://wa.me/918219071272?text=${encodeURIComponent(
+    "Hi Abhishek! I came across your portfolio and I'm interested in discussing a freelance project with you. Can we connect?"
+  )}`,
 };
 
 export const siteConfig = {
@@ -152,4 +154,5 @@ export const siteConfig = {
   description:
     "Experienced Frontend Developer specializing in React, Next.js, and TypeScript. Available for freelance projects.",
   url: "https://abhishek-agnihotri.vercel.app",
+  careerStartYear: 2021,
 };

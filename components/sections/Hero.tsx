@@ -47,8 +47,28 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       aria-label="Hero section"
     >
-      {/* Aurora background */}
-      <HeroCanvas />
+      {/* Layer 1 — CSS aurora blobs (instant render, no JS) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <div
+          className="absolute rounded-full animate-blob-1"
+          style={{
+            width: 700, height: 700, top: -220, left: -220,
+            background: "radial-gradient(circle at 50% 50%, rgba(0,245,255,0.16) 0%, transparent 65%)",
+            filter: "blur(90px)",
+          }}
+        />
+        <div
+          className="absolute rounded-full animate-blob-2"
+          style={{
+            width: 620, height: 620, top: -160, right: -160,
+            background: "radial-gradient(circle at 50% 50%, rgba(107,33,168,0.28) 0%, transparent 65%)",
+            filter: "blur(80px)",
+          }}
+        />
+      </div>
+
+      {/* Layer 2 — Three.js 3D scene (fog + particles + grid + shapes) */}
+      {!reduce && <HeroCanvas />}
 
       {/* Bottom fade into next section */}
       <div

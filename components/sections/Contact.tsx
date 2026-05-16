@@ -1,157 +1,110 @@
 "use client";
 
 import { useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
-import { FiGithub, FiLinkedin, FiCopy, FiCheck } from "react-icons/fi";
+import { motion } from "framer-motion";
+import { FiGithub, FiLinkedin, FiCopy, FiCheck, FiMail } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { socialLinks } from "@/lib/data";
+import { SplitText } from "@/components/ui/SplitText";
+import { AnimateLines, Line } from "@/components/ui/AnimateLines";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
-  const reduce = useReducedMotion();
 
-  const handleCopyEmail = async () => {
+  const copy = async () => {
     try {
       await navigator.clipboard.writeText(socialLinks.email);
       setCopied(true);
-      toast.success("Email copied to clipboard!", {
-        position: "bottom-center",
-        autoClose: 1500,
-        hideProgressBar: true,
-        theme: "dark",
-        style: { background: "#0d1117", border: "1px solid rgba(0,245,255,0.3)", color: "#f0ede8" },
+      toast.success("Email copied!", {
+        position: "bottom-center", autoClose: 1400, hideProgressBar: true, theme: "dark",
+        style: { background: "#111", border: "1px solid rgba(255,255,255,0.15)", color: "#f0ede8", fontSize: "13px" },
       });
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      toast.error("Could not copy. Please copy manually.", { position: "bottom-center", theme: "dark" });
+      toast.error("Could not copy.", { position: "bottom-center", theme: "dark" });
     }
   };
 
   return (
     <>
-      <section id="contact" aria-label="Contact section" className="py-32">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.p
-            className="text-accent font-mono text-xs tracking-[0.3em] uppercase mb-6"
-            initial={reduce ? {} : { opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            Get in touch
-          </motion.p>
+      <section id="contact" aria-label="Contact section" className="py-24 border-t border-white/8">
+        <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
 
-          <motion.h2
-            className="text-[clamp(2.5rem,6vw,5rem)] font-heading font-bold text-text-primary leading-tight mb-6"
-            initial={reduce ? {} : { opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-          >
-            Let&apos;s build{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-400">
-              something.
-            </span>
-          </motion.h2>
+          <AnimateLines>
+            <Line><p className="font-mono text-xs text-white/55 tracking-[0.4em] uppercase mb-4">Get In Touch</p></Line>
+            <Line><h2 className="font-heading font-bold text-[clamp(2rem,4vw,3rem)] text-white mb-4">Let&apos;s Work Together</h2></Line>
+            <Line>
+              <p className="text-base text-white/70 font-body max-w-xl mb-12">
+                <SplitText speed={0.07} amount={0.05}>
+                  {`I'm currently open to freelance projects, collaborations, and opportunities. If you have a project in mind or just want to say hi, my inbox is always open.`}
+                </SplitText>
+              </p>
+            </Line>
+          </AnimateLines>
 
-          <motion.p
-            className="text-text-muted font-body text-lg mb-12 max-w-xl mx-auto"
-            initial={reduce ? {} : { opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Available for freelance projects. If you have an idea you want to bring to life,
-            I&apos;d love to hear about it.
-          </motion.p>
+          <AnimateLines className="grid grid-cols-1 lg:grid-cols-2 gap-6" stagger={0.2}>
+            <Line>
+              <motion.div
+                className="group bg-white/3 border border-white/10 rounded-2xl p-8 hover:border-white/25 hover:bg-white/5 transition-all duration-300 cursor-pointer h-full"
+                onClick={copy} role="button" aria-label={`Copy email ${socialLinks.email}`}
+                whileHover={{ y: -3 }}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-white/6 border border-white/12 flex items-center justify-center text-white/60">
+                    <FiMail size={18} />
+                  </div>
+                  <p className="text-xs font-mono text-white/55 tracking-widest uppercase">Email</p>
+                </div>
+                <div className="flex items-center justify-between gap-4">
+                  <p className="font-mono text-white/80 text-sm group-hover:text-white transition-colors duration-200 break-all">{socialLinks.email}</p>
+                  <span className="shrink-0 text-white/45 group-hover:text-white transition-colors duration-200">
+                    {copied ? <FiCheck size={16} /> : <FiCopy size={16} />}
+                  </span>
+                </div>
+                <p className="text-xs text-white/45 mt-3 font-mono">Click to copy</p>
+              </motion.div>
+            </Line>
 
-          {/* Email pill */}
-          <motion.div
-            className="flex justify-center mb-12"
-            initial={reduce ? {} : { opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <button
-              onClick={handleCopyEmail}
-              aria-label={`Copy email address ${socialLinks.email}`}
-              className="group flex items-center gap-3 px-5 py-3 sm:px-6 sm:py-3.5 rounded-full border border-accent/30 bg-accent/5 text-text-primary font-mono text-xs sm:text-sm hover:border-accent hover:bg-accent/10 transition-all duration-300 max-w-full"
+            <Line>
+              <div className="bg-white/3 border border-white/10 rounded-2xl p-8 hover:border-white/18 transition-all duration-300 h-full">
+                <p className="text-xs font-mono text-white/55 tracking-widest uppercase mb-6">Social</p>
+                <div className="space-y-4">
+                  {[
+                    { href: socialLinks.github,   icon: <FiGithub size={16} />,   label: "GitHub",   sub: "github.com/Abhi2806200" },
+                    { href: socialLinks.linkedin, icon: <FiLinkedin size={16} />, label: "LinkedIn", sub: "Connect with me" },
+                    { href: socialLinks.whatsapp, icon: <FaWhatsapp size={16} />, label: "WhatsApp", sub: "Chat directly" },
+                  ].map(({ href, icon, label, sub }, i) => (
+                    <motion.a
+                      key={label} href={href} target="_blank" rel="noopener noreferrer"
+                      initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: false }} transition={{ duration: 0.45, delay: i * 0.1 }}
+                      className="flex items-center gap-3 text-white/55 hover:text-white transition-colors duration-200 group"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-white/25 transition-colors duration-200">{icon}</div>
+                      <div>
+                        <p className="text-sm font-heading font-semibold text-white/80 group-hover:text-white transition-colors">{label}</p>
+                        <p className="text-xs font-mono text-white/45">{sub}</p>
+                      </div>
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
+            </Line>
+          </AnimateLines>
+
+          <div className="mt-8">
+            <motion.a
+              href="/assets/abhishek_resume.pdf" download="Abhishek_Agnihotri_Resume.pdf"
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.1 }} transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white/70 text-sm font-heading font-semibold hover:border-white/45 hover:text-white hover:bg-white/5 transition-all duration-200"
             >
-              <span className="truncate">{socialLinks.email}</span>
-              <span className="text-accent transition-transform duration-200 group-hover:scale-110 shrink-0">
-                {copied ? <FiCheck size={15} /> : <FiCopy size={15} />}
-              </span>
-            </button>
-          </motion.div>
+              Download Resume ↓
+            </motion.a>
+          </div>
 
-          {/* Social links */}
-          <motion.div
-            className="flex flex-wrap items-center justify-center gap-y-4 gap-x-5 sm:gap-x-6"
-            initial={reduce ? {} : { opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <a
-              href={socialLinks.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub profile"
-              className="group flex items-center gap-2 text-text-muted hover:text-text-primary transition-colors duration-200"
-            >
-              <FiGithub size={18} />
-              <span className="text-sm font-body relative">
-                GitHub
-                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
-              </span>
-            </a>
-
-            <div className="w-px h-4 bg-white/10 hidden sm:block" aria-hidden="true" />
-
-            <a
-              href={socialLinks.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn profile"
-              className="group flex items-center gap-2 text-text-muted hover:text-text-primary transition-colors duration-200"
-            >
-              <FiLinkedin size={18} />
-              <span className="text-sm font-body relative">
-                LinkedIn
-                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
-              </span>
-            </a>
-
-            <div className="w-px h-4 bg-white/10 hidden sm:block" aria-hidden="true" />
-
-            <a
-              href={socialLinks.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Chat on WhatsApp"
-              className="group flex items-center gap-2 text-text-muted hover:text-[#25D366] transition-colors duration-200"
-            >
-              <FaWhatsapp size={18} />
-              <span className="text-sm font-body relative">
-                WhatsApp
-                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#25D366] group-hover:w-full transition-all duration-300" />
-              </span>
-            </a>
-
-            <div className="w-px h-4 bg-white/10 hidden sm:block" aria-hidden="true" />
-
-            <a
-              href="/assets/abhishek_resume.pdf"
-              download="Abhishek_Agnihotri_Resume.pdf"
-              aria-label="Download Abhishek Agnihotri's resume"
-              className="group flex items-center gap-2 text-text-muted hover:text-accent transition-colors duration-200 text-sm font-body"
-            >
-              Resume ↓
-            </a>
-          </motion.div>
         </div>
       </section>
       <ToastContainer />

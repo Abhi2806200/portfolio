@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{\"components/sections/Hero.tsx -> ./HeroCanvas\":{\"id\":\"components/sections/Hero.tsx -> ./HeroCanvas\",\"files\":[\"static/chunks/_app-pages-browser_components_sections_HeroCanvas_tsx.js\"]}}"
+self.__REACT_LOADABLE_MANIFEST="{\"components/ui/BackgroundWrapper.tsx -> ./BackgroundCanvas\":{\"id\":\"components/ui/BackgroundWrapper.tsx -> ./BackgroundCanvas\",\"files\":[\"static/chunks/_app-pages-browser_components_ui_BackgroundCanvas_tsx.js\"]}}"

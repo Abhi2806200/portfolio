@@ -1,34 +1,24 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import Link from "next/link";
-import { navItems } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
+const NAV = [
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Skills", href: "#skills" },
+  { label: "Contact", href: "#contact" },
+];
+
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
-  const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
-  useEffect(() => {
-    return scrollY.on("change", (v) => setScrolled(v > 40));
-  }, [scrollY]);
-
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLAnchorElement>, i: number) => {
-    const el = linkRefs.current[i];
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
-    el.style.transform = `translate(${x}px, ${y}px)`;
-  }, []);
-
-  const handleMouseLeave = useCallback((i: number) => {
-    const el = linkRefs.current[i];
-    if (el) el.style.transform = "translate(0,0)";
-  }, []);
+  useEffect(() => scrollY.on("change", (v) => setScrolled(v > 60)), [scrollY]);
 
   return (
     <>
@@ -36,92 +26,110 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           scrolled
-            ? "bg-background/85 backdrop-blur-xl shadow-[0_1px_0_rgba(255,255,255,0.04)]"
+            ? "bg-background/90 backdrop-blur-xl border-b border-white/8"
             : "bg-transparent"
         )}
-        initial={{ y: -80, opacity: 0 }}
+        initial={{ y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: "easeOut" as const }}
       >
         <nav
-          className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between"
+          className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 h-16 flex items-center justify-between"
           aria-label="Main navigation"
         >
           {/* Logo */}
           <Link
             href="#hero"
-            className="flex items-center gap-1 font-heading font-bold text-lg text-text-primary select-none"
-            aria-label="Abhishek Agnihotri — Home"
+            className="font-display font-bold text-lg text-white select-none"
+            aria-label="Home"
           >
-            <span className="text-accent">[</span>
-            <span>AA</span>
-            <span className="text-accent">]</span>
+            <span className="text-white/55">[</span>
+            AA
+            <span className="text-white/55">]</span>
           </Link>
 
           {/* Desktop links */}
           <ul className="hidden md:flex items-center gap-8" role="list">
-            {navItems.map(({ id, label, href }, i) => (
-              <li key={id}>
+            {NAV.map(({ label, href }) => (
+              <li key={label}>
                 <Link
                   href={href}
-                  ref={(el) => { linkRefs.current[i] = el; }}
-                  onMouseMove={(e) => handleMouseMove(e, i)}
-                  onMouseLeave={() => handleMouseLeave(i)}
-                  className="text-sm font-body text-text-muted hover:text-text-primary transition-all duration-200 relative group"
-                  style={{ transition: "transform 0.15s ease, color 0.2s" }}
+                  className="font-mono text-[11px] text-white/60 hover:text-white tracking-[0.35em] uppercase transition-colors duration-200 relative group"
                 >
                   {label}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300" />
                 </Link>
               </li>
             ))}
+            <li>
+              <a
+                href="/assets/abhishek_resume.pdf"
+                download="Abhishek_Agnihotri_Resume.pdf"
+                className="px-4 py-2 rounded-full border border-white/25 text-white/70 font-mono text-[11px] tracking-widest uppercase hover:border-white/55 hover:text-white transition-all duration-200"
+              >
+                Resume
+              </a>
+            </li>
           </ul>
 
           {/* Mobile hamburger */}
           <button
             className="md:hidden flex flex-col gap-1.5 p-2"
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
           >
-            <span className={cn("w-6 h-px bg-text-primary transition-all duration-300", menuOpen && "rotate-45 translate-y-2")} />
-            <span className={cn("w-6 h-px bg-text-primary transition-all duration-300", menuOpen && "opacity-0")} />
-            <span className={cn("w-6 h-px bg-text-primary transition-all duration-300", menuOpen && "-rotate-45 -translate-y-2")} />
+            <span className={cn("w-5 h-px bg-white/70 transition-all duration-300", open && "rotate-45 translate-y-2")} />
+            <span className={cn("w-5 h-px bg-white/70 transition-all duration-300", open && "opacity-0")} />
+            <span className={cn("w-5 h-px bg-white/70 transition-all duration-300", open && "-rotate-45 -translate-y-2")} />
           </button>
         </nav>
       </motion.header>
 
-      {/* Mobile full-screen menu */}
+      {/* Mobile menu */}
       <AnimatePresence>
-        {menuOpen && (
+        {open && (
           <motion.div
-            className="fixed inset-0 z-40 bg-background flex flex-col items-center justify-center"
+            className="fixed inset-0 z-40 bg-background/96 backdrop-blur-xl flex flex-col items-center justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.25 }}
           >
-            <nav aria-label="Mobile navigation">
-              <ul className="flex flex-col items-center gap-8" role="list">
-                {navItems.map(({ id, label, href }, i) => (
-                  <motion.li
-                    key={id}
-                    initial={{ y: 30, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 30, opacity: 0 }}
-                    transition={{ delay: i * 0.07, duration: 0.4, ease: "easeOut" }}
+            <ul className="flex flex-col items-center gap-8" role="list">
+              {NAV.map(({ label, href }, i) => (
+                <motion.li
+                  key={label}
+                  initial={{ y: 24, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: 24, opacity: 0 }}
+                  transition={{ delay: i * 0.06, duration: 0.35 }}
+                >
+                  <Link
+                    href={href}
+                    onClick={() => setOpen(false)}
+                    className="font-heading font-bold text-3xl text-white/80 hover:text-white transition-colors duration-200"
                   >
-                    <Link
-                      href={href}
-                      onClick={() => setMenuOpen(false)}
-                      className="text-4xl font-heading font-bold text-text-primary hover:text-accent transition-colors duration-200"
-                    >
-                      {label}
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
-            </nav>
+                    {label}
+                  </Link>
+                </motion.li>
+              ))}
+              <motion.li
+                initial={{ y: 24, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: 24, opacity: 0 }}
+                transition={{ delay: NAV.length * 0.06, duration: 0.35 }}
+              >
+                <a
+                  href="/assets/abhishek_resume.pdf"
+                  download="Abhishek_Agnihotri_Resume.pdf"
+                  onClick={() => setOpen(false)}
+                  className="font-mono text-sm text-white/60 border border-white/25 px-6 py-2.5 rounded-full hover:text-white hover:border-white/55 transition-all duration-200 tracking-widest uppercase"
+                >
+                  Resume
+                </a>
+              </motion.li>
+            </ul>
           </motion.div>
         )}
       </AnimatePresence>

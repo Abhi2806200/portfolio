@@ -16,7 +16,7 @@ export default function HeroCanvas() {
 
     /* ── Scene ── */
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x0a0a0f, isMobile ? 0.022 : 0.018);
+    scene.fog = new THREE.FogExp2(0x080808, isMobile ? 0.022 : 0.018);
 
     /* ── Camera ── */
     const camera = new THREE.PerspectiveCamera(68, W / H, 0.1, 160);
@@ -32,7 +32,7 @@ export default function HeroCanvas() {
     /* ── Wireframe grid floor ── */
     const gridGeo = new THREE.PlaneGeometry(120, 120, 40, 40);
     const gridMat = new THREE.MeshBasicMaterial({
-      color: 0x00f5ff,
+      color: 0xffffff,
       wireframe: true,
       transparent: true,
       opacity: 0.06,
@@ -53,7 +53,7 @@ export default function HeroCanvas() {
     const p1Geo = new THREE.BufferGeometry();
     p1Geo.setAttribute("position", new THREE.BufferAttribute(p1Pos, 3));
     const p1Mat = new THREE.PointsMaterial({
-      color: 0x00f5ff,
+      color: 0xffffff,
       size: 0.07,
       transparent: true,
       opacity: 0.55,
@@ -84,7 +84,7 @@ export default function HeroCanvas() {
     /* ── Central icosahedron (cyan wireframe) ── */
     const icoGeo = new THREE.IcosahedronGeometry(3.6, 1);
     const icoMat = new THREE.MeshBasicMaterial({
-      color: 0x00f5ff,
+      color: 0xffffff,
       wireframe: true,
       transparent: true,
       opacity: 0.22,
@@ -95,7 +95,7 @@ export default function HeroCanvas() {
     /* ── Outer shell (purple, counter-rotates) ── */
     const shellGeo = new THREE.IcosahedronGeometry(4.5, 1);
     const shellMat = new THREE.MeshBasicMaterial({
-      color: 0x9333ea,
+      color: 0x888888,
       wireframe: true,
       transparent: true,
       opacity: 0.09,
@@ -106,14 +106,14 @@ export default function HeroCanvas() {
     /* ── Orbital rings ── */
     const ring1 = new THREE.Mesh(
       new THREE.TorusGeometry(6, 0.018, 6, 100),
-      new THREE.MeshBasicMaterial({ color: 0x00f5ff, transparent: true, opacity: 0.18 })
+      new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.18 })
     );
     ring1.rotation.x = Math.PI / 2.6;
     scene.add(ring1);
 
     const ring2 = new THREE.Mesh(
       new THREE.TorusGeometry(7.8, 0.012, 6, 100),
-      new THREE.MeshBasicMaterial({ color: 0x9333ea, transparent: true, opacity: 0.13 })
+      new THREE.MeshBasicMaterial({ color: 0x888888, transparent: true, opacity: 0.13 })
     );
     ring2.rotation.x = -Math.PI / 3.2;
     ring2.rotation.z = Math.PI / 3.8;
@@ -121,7 +121,7 @@ export default function HeroCanvas() {
 
     const ring3 = new THREE.Mesh(
       new THREE.TorusGeometry(9.5, 0.008, 6, 100),
-      new THREE.MeshBasicMaterial({ color: 0x00f5ff, transparent: true, opacity: 0.07 })
+      new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.07 })
     );
     ring3.rotation.x = Math.PI / 4.5;
     ring3.rotation.y = Math.PI / 5;
@@ -133,7 +133,7 @@ export default function HeroCanvas() {
       const m = new THREE.Mesh(
         g,
         new THREE.MeshBasicMaterial({
-          color: i % 2 === 0 ? 0x00f5ff : 0x9333ea,
+          color: i % 2 === 0 ? 0xffffff : 0x888888,
           wireframe: true,
           transparent: true,
           opacity: 0.5,

@@ -1,117 +1,83 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import Image from "next/image";
-import MarqueeText from "@/components/ui/MarqueeText";
-import { techStack, siteConfig } from "@/lib/data";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0 },
-};
+import { siteConfig } from "@/lib/data";
+import { SplitText } from "@/components/ui/SplitText";
+import { AnimateLines, Line } from "@/components/ui/AnimateLines";
 
 export default function About() {
-  const reduce = useReducedMotion();
-  const yearsExp = new Date().getFullYear() - siteConfig.careerStartYear;
+  const years = new Date().getFullYear() - siteConfig.careerStartYear;
+
+  const FACTS = [
+    { label: "Location",     value: "India 🇮🇳" },
+    { label: "Availability", value: "Open to Freelance" },
+    { label: "Experience",   value: `${years}+ Years` },
+    { label: "Focus",        value: "React & Next.js" },
+    { label: "Specialty",    value: "AI Integration" },
+    { label: "Approach",     value: "Clean, Scalable Code" },
+  ];
 
   return (
-    <section id="about" aria-label="About section" className="py-32 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
-        <motion.p
-          className="text-accent font-mono text-xs tracking-[0.3em] uppercase mb-4"
-          variants={fadeUp}
-          initial={reduce ? "visible" : "hidden"}
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-        >
-          About me
-        </motion.p>
+    <section id="about" aria-label="About section" className="py-24 border-t border-white/8">
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
-          {/* Left — text */}
-          <motion.div
-            className="lg:col-span-3 space-y-8"
-            variants={fadeUp}
-            initial={reduce ? "visible" : "hidden"}
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-          >
-            <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-heading font-bold text-text-primary leading-[1.1]">
-              Building the web,{" "}
-              <em className="not-italic text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-400">
-                one pixel at a time.
-              </em>
-            </h2>
+        <AnimateLines>
+          <Line><p className="font-mono text-xs text-white/55 tracking-[0.4em] uppercase mb-4">About Me</p></Line>
+          <Line><h2 className="font-heading font-bold text-[clamp(2rem,4vw,3rem)] text-white mb-16">The Story So Far</h2></Line>
+        </AnimateLines>
 
-            <p className="text-lg text-text-muted font-body leading-relaxed">
-              I&apos;m a software developer who turns complex ideas into seamless digital
-              experiences. With{" "}
-              <span className="text-text-primary font-medium">{yearsExp}+ years</span> of
-              hands-on experience, I care deeply about performance, accessibility, and the
-              details that make a product feel alive.
-            </p>
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-20">
 
-            <p className="text-base text-text-muted font-body leading-relaxed">
-              I&apos;ve built everything from blockchain platforms and real-time trading bots
-              to AI-integrated web applications. I bring the same level of craft and obsession
-              to every project, no matter the scale.
-            </p>
+          {/* Left — narrative paragraphs (word by word) */}
+          <AnimateLines className="space-y-6">
+            <Line>
+              <p className="text-xl font-heading font-semibold text-white leading-[1.35]">
+                <SplitText speed={0.08}>
+                  {`I didn't start with code — I started with curiosity.`}
+                </SplitText>
+              </p>
+            </Line>
+            <Line>
+              <p className="text-base text-white/75 font-body leading-relaxed">
+                <SplitText speed={0.07} amount={0.04}>
+                  {`That curiosity became a career. ${years}+ years of building things that work, look right, and feel inevitable once you use them. I care deeply about the details most people scroll past — the micro-animation that makes an interaction feel alive, the architecture decision that saves a team months down the road.`}
+                </SplitText>
+              </p>
+            </Line>
+            <Line>
+              <p className="text-base text-white/70 font-body leading-relaxed">
+                <SplitText speed={0.07} amount={0.04}>
+                  {`I've worked across the stack — blockchain platforms at Antier Solutions, algorithmic trading bots, AI-integrated applications, and interactive 3D web experiences. The stack changes. The obsession with craft doesn't.`}
+                </SplitText>
+              </p>
+            </Line>
+            <Line>
+              <p className="text-base text-white/70 font-body leading-relaxed">
+                <SplitText speed={0.07} amount={0.04}>
+                  {`Today I work independently, taking on freelance projects where performance, design, and intelligence need to meet in one place. If you're building something worth building, I'd like to be part of it.`}
+                </SplitText>
+              </p>
+            </Line>
+            <Line><div className="h-px bg-white/10 mt-4" /></Line>
+            <Line>
+              <p className="text-sm text-white/45 font-mono italic">
+                &ldquo;You be the problem — I&apos;ll be the solution.&rdquo;
+              </p>
+            </Line>
+          </AnimateLines>
 
-            {/* Skill pills */}
-            <div className="flex flex-wrap gap-2 pt-2">
-              {["React", "Next.js", "TypeScript", "Tailwind CSS", "OpenAI API", "AI Integration", "Node.js"].map((s) => (
-                <span
-                  key={s}
-                  className="px-3 py-1.5 text-xs font-mono border border-accent/20 text-accent/80 rounded-full bg-accent/5 hover:border-accent/50 transition-colors duration-200"
-                >
-                  {s}
-                </span>
-              ))}
-            </div>
-          </motion.div>
+          {/* Right — quick facts */}
+          <AnimateLines className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3" stagger={0.1}>
+            {FACTS.map((fact) => (
+              <Line key={fact.label}>
+                <div className="flex items-center justify-between px-5 py-4 rounded-xl bg-white/3 border border-white/10 hover:border-white/22 hover:bg-white/5 transition-all duration-200">
+                  <span className="text-xs font-mono text-white/50 tracking-wider uppercase">{fact.label}</span>
+                  <span className="text-sm font-heading font-semibold text-white">{fact.value}</span>
+                </div>
+              </Line>
+            ))}
+          </AnimateLines>
 
-          {/* Right — portrait */}
-          <motion.div
-            className="lg:col-span-2"
-            initial={reduce ? {} : { opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          >
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-white/5 border border-white/8 shadow-[0_0_60px_rgba(0,245,255,0.04)]">
-              <Image
-                src="/assets/heroImage.png"
-                alt="Abhishek Agnihotri — Software Developer"
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                priority
-              />
-              <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-accent/40 rounded-tr-2xl" aria-hidden="true" />
-              <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-accent/40 rounded-bl-2xl" aria-hidden="true" />
-            </div>
-
-            {/* Stat pills below portrait */}
-            <div className="flex gap-3 mt-4">
-              <div className="flex-1 glass rounded-xl p-4 text-center">
-                <p className="text-2xl font-heading font-bold text-accent">{yearsExp}+</p>
-                <p className="text-xs text-text-muted font-mono mt-0.5">Years exp.</p>
-              </div>
-              <div className="flex-1 glass rounded-xl p-4 text-center">
-                <p className="text-2xl font-heading font-bold text-accent">10+</p>
-                <p className="text-xs text-text-muted font-mono mt-0.5">Projects</p>
-              </div>
-            </div>
-          </motion.div>
         </div>
-      </div>
-
-      {/* Tech stack marquee */}
-      <div className="mt-28 space-y-3 overflow-hidden">
-        <MarqueeText items={techStack} />
-        <MarqueeText items={techStack} reverse />
       </div>
     </section>
   );

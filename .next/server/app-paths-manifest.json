@@ -1,5 +1,6 @@
 {
-  "/opengraph-image/route": "app/opengraph-image/route.js",
   "/icon/route": "app/icon/route.js",
+  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
+  "/apple-icon/route": "app/apple-icon/route.js",
   "/page": "app/page.js"
 }

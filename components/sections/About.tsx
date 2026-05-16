@@ -49,13 +49,13 @@ export default function About() {
               I&apos;m a software developer who turns complex ideas into seamless digital
               experiences. With{" "}
               <span className="text-text-primary font-medium">{yearsExp}+ years</span> of
-              hands-on work at Antier Solutions and now as a freelancer, I care deeply about
-              performance, accessibility, and the details that make a product feel alive.
+              hands-on experience, I care deeply about performance, accessibility, and the
+              details that make a product feel alive.
             </p>
 
             <p className="text-base text-text-muted font-body leading-relaxed">
-              Currently taking on freelance projects — from blockchain platforms and real-time
-              trading bots to AI-integrated web applications. I bring the same level of craft
+              I&apos;ve built everything from blockchain platforms and real-time trading bots
+              to AI-integrated web applications. I bring the same level of craft and obsession
               to every project, no matter the scale.
             </p>
 

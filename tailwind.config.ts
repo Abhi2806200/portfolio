@@ -30,6 +30,9 @@ const config: Config = {
         "pulse-dot": "pulse-dot 2s ease-in-out infinite",
         "orbit-cw": "orbit-cw 26s linear infinite",
         "orbit-ccw": "orbit-ccw 26s linear infinite",
+        "blob-1": "blob-move-1 22s ease-in-out infinite",
+        "blob-2": "blob-move-2 28s ease-in-out infinite",
+        "blob-3": "blob-move-3 17s ease-in-out infinite",
       },
       keyframes: {
         marquee: {
@@ -59,6 +62,20 @@ const config: Config = {
         "orbit-ccw": {
           from: { transform: "rotate(0deg)" },
           to: { transform: "rotate(-360deg)" },
+        },
+        "blob-move-1": {
+          "0%,100%": { transform: "translate(0px, 0px) scale(1)" },
+          "33%": { transform: "translate(80px, -60px) scale(1.12)" },
+          "66%": { transform: "translate(-50px, 40px) scale(0.9)" },
+        },
+        "blob-move-2": {
+          "0%,100%": { transform: "translate(0px, 0px) scale(1)" },
+          "33%": { transform: "translate(-60px, 50px) scale(0.92)" },
+          "66%": { transform: "translate(55px, -65px) scale(1.1)" },
+        },
+        "blob-move-3": {
+          "0%,100%": { transform: "translateY(0px) scale(1)" },
+          "50%": { transform: "translateY(-45px) scale(1.14)" },
         },
       },
     },

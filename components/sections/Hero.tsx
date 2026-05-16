@@ -47,22 +47,8 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       aria-label="Hero section"
     >
-      {/* Three.js canvas */}
-      {!reduce && (
-        <div className="absolute inset-0 opacity-50">
-          <HeroCanvas />
-        </div>
-      )}
-
-      {/* Deep purple radial glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 60% at 50% 70%, rgba(107,33,168,0.15) 0%, transparent 65%)",
-        }}
-        aria-hidden="true"
-      />
+      {/* Aurora background */}
+      <HeroCanvas />
 
       {/* Bottom fade into next section */}
       <div

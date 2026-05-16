@@ -103,7 +103,10 @@
   .orbit-ring,
   .orbit-badge-wrap,
   .animate-marquee,
-  .animate-marquee-rev {
+  .animate-marquee-rev,
+  .animate-blob-1,
+  .animate-blob-2,
+  .animate-blob-3 {
     animation: none !important;
   }
 

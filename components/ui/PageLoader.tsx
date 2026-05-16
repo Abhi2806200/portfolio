@@ -9,21 +9,21 @@ export default function PageLoader() {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const DURATION = 1800;
+    const DURATION = 2200;
     const start = performance.now();
 
-    // Ease-out cubic — starts fast, breathes at the end
-    const easeOut = (t: number) => 1 - Math.pow(1 - t, 2.4);
+    const ease = (t: number) =>
+      t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
     let raf: number;
     const tick = (now: number) => {
       const t = Math.min(1, (now - start) / DURATION);
-      setProgress(Math.round(easeOut(t) * 100));
+      setProgress(Math.round(ease(t) * 100));
       if (t < 1) {
         raf = requestAnimationFrame(tick);
       } else {
-        setTimeout(() => setDone(true), 180);
-        setTimeout(() => setVisible(false), 900);
+        setTimeout(() => setDone(true), 300);
+        setTimeout(() => setVisible(false), 1100);
       }
     };
 
@@ -36,110 +36,143 @@ export default function PageLoader() {
       {visible && (
         <motion.div
           key="loader"
-          exit={{
-            y: "-100%",
-            transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1] },
-          }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden select-none"
+          exit={{ y: "-100%", transition: { duration: 1.05, ease: [0.76, 0, 0.24, 1] } }}
+          className="fixed inset-0 z-[9999] overflow-hidden flex flex-col items-center justify-center"
           style={{ background: "#0a0a0a" }}
         >
-          {/* Subtle dot grid */}
+          {/* Dot grid */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               backgroundImage:
-                "radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px)",
-              backgroundSize: "36px 36px",
+                "radial-gradient(circle, rgba(255,255,255,0.022) 1px, transparent 1px)",
+              backgroundSize: "44px 44px",
             }}
           />
 
-          {/* Radial vignette over the grid */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(ellipse 70% 70% at 50% 50%, transparent 0%, #0a0a0a 100%)",
-            }}
-          />
-
-          {/* ── Content ── */}
-          <div className="relative flex flex-col items-center">
-
-            {/* Monogram */}
-            <motion.span
-              initial={{ opacity: 0, scale: 0.8, filter: "blur(20px)" }}
-              animate={
-                done
-                  ? { opacity: 0, scale: 1.3, filter: "blur(32px)" }
-                  : { opacity: 1, scale: 1, filter: "blur(0px)" }
-              }
-              transition={{
-                duration: done ? 0.55 : 1,
-                ease: [0.22, 1, 0.36, 1],
+          {/* Radial spotlight */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div
+              style={{
+                width: 600,
+                height: 600,
+                borderRadius: "50%",
+                background:
+                  "radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%)",
               }}
+            />
+          </div>
+
+          {/* Corner brackets */}
+          {[
+            { top: 32, left: 40,  borderTop: true,  borderLeft: true },
+            { top: 32, right: 40, borderTop: true,  borderRight: true },
+            { bottom: 32, left: 40,  borderBottom: true, borderLeft: true },
+            { bottom: 32, right: 40, borderBottom: true, borderRight: true },
+          ].map((pos, i) => (
+            <div
+              key={i}
+              className="absolute pointer-events-none"
+              style={{
+                ...pos,
+                width: 20,
+                height: 20,
+                borderTopWidth:    pos.borderTop    ? "1.5px" : 0,
+                borderBottomWidth: pos.borderBottom ? "1.5px" : 0,
+                borderLeftWidth:   pos.borderLeft   ? "1.5px" : 0,
+                borderRightWidth:  pos.borderRight  ? "1.5px" : 0,
+                borderStyle: "solid",
+                borderColor: "rgba(255,255,255,0.2)",
+                borderRadius: pos.borderTop && pos.borderLeft
+                  ? "4px 0 0 0"
+                  : pos.borderTop && pos.borderRight
+                  ? "0 4px 0 0"
+                  : pos.borderBottom && pos.borderLeft
+                  ? "0 0 0 4px"
+                  : "0 0 4px 0",
+              }}
+            />
+          ))}
+
+          {/* ── Monogram ── */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.88, filter: "blur(16px)" }}
+            animate={
+              done
+                ? { opacity: 0, scale: 1.15, filter: "blur(28px)" }
+                : { opacity: 1, scale: 1,    filter: "blur(0px)" }
+            }
+            transition={{ duration: done ? 0.55 : 1.0, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col items-center gap-5 select-none"
+          >
+            {/* AA */}
+            <span
               className="font-display font-bold leading-none tracking-tight"
               style={{
-                fontSize: "clamp(6rem, 20vw, 13rem)",
+                fontSize: "clamp(6rem, 18vw, 12rem)",
                 background:
-                  "linear-gradient(135deg, #ffffff 0%, #d0dff0 28%, #7b9ec9 60%, #3a5a80 100%)",
+                  "linear-gradient(160deg, #ffffff 0%, #e2e8f0 30%, #94a3b8 65%, #64748b 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
+                letterSpacing: "-0.04em",
               }}
             >
               AA
-            </motion.span>
+            </span>
 
             {/* Name */}
             <motion.p
-              initial={{ opacity: 0, y: 10, letterSpacing: "0.6em" }}
+              initial={{ opacity: 0, y: 6 }}
               animate={
                 done
-                  ? { opacity: 0, y: -6, letterSpacing: "0.8em" }
-                  : { opacity: 0.38, y: 0, letterSpacing: "0.45em" }
+                  ? { opacity: 0 }
+                  : { opacity: 0.3, y: 0 }
               }
-              transition={{ duration: done ? 0.4 : 0.7, delay: done ? 0 : 0.45 }}
-              className="font-mono text-[11px] uppercase text-white mt-2"
+              transition={{ duration: 0.8, delay: done ? 0 : 0.5 }}
+              className="font-mono text-[11px] tracking-[0.45em] uppercase text-white"
             >
               Abhishek Agnihotri
             </motion.p>
+          </motion.div>
 
-            {/* Progress bar + counter */}
-            <motion.div
-              initial={{ opacity: 0, y: 6 }}
-              animate={done ? { opacity: 0 } : { opacity: 1, y: 0 }}
-              transition={{ delay: done ? 0 : 0.35, duration: 0.5 }}
-              className="mt-12 flex flex-col items-center gap-3"
-            >
-              {/* Bar track */}
-              <div className="relative w-36 h-px bg-white/10 overflow-hidden rounded-full">
-                {/* Animated fill */}
-                <div
-                  className="absolute inset-y-0 left-0 rounded-full transition-none"
-                  style={{
-                    width: `${progress}%`,
-                    background:
-                      "linear-gradient(90deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.9) 100%)",
-                  }}
-                />
-                {/* Shimmer sweep */}
-                <motion.div
-                  className="absolute inset-y-0 w-8 rounded-full"
-                  style={{
-                    background:
-                      "linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent)",
-                    left: `${progress}%`,
-                    transform: "translateX(-50%)",
-                  }}
-                />
-              </div>
+          {/* ── Progress bar ── */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={done ? { opacity: 0 } : { opacity: 1 }}
+            transition={{ delay: done ? 0 : 0.4, duration: 0.5 }}
+            className="absolute bottom-14 left-1/2 -translate-x-1/2 w-56"
+          >
+            {/* Track */}
+            <div className="relative h-px w-full rounded-full" style={{ background: "rgba(255,255,255,0.07)" }}>
+              {/* Fill */}
+              <div
+                className="absolute inset-y-0 left-0 rounded-full"
+                style={{
+                  width: `${progress}%`,
+                  background:
+                    "linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,0.75))",
+                  transition: "width 80ms linear",
+                }}
+              />
+              {/* Glowing tip */}
+              <div
+                className="absolute rounded-full"
+                style={{
+                  width: 4,
+                  height: 4,
+                  top: "50%",
+                  left: `${progress}%`,
+                  transform: "translate(-50%, -50%)",
+                  background: "#ffffff",
+                  boxShadow:
+                    "0 0 5px 1px rgba(255,255,255,0.95), 0 0 12px 3px rgba(255,255,255,0.3)",
+                  transition: "left 80ms linear",
+                }}
+              />
+            </div>
+          </motion.div>
 
-              {/* Percentage */}
-              <p className="font-mono text-[11px] text-white/22 tabular-nums">
-                {String(progress).padStart(3, " ")}%
-              </p>
-            </motion.div>
-          </div>
         </motion.div>
       )}
     </AnimatePresence>

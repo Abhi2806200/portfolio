@@ -4,14 +4,14 @@ import path from "node:path";
 
 export const alt = "Abhishek Agnihotri — Software Developer | React & Next.js";
 export const size = { width: 1200, height: 630 };
-export const contentType = "image/jpeg";
+export const contentType = "image/png";
 
 export default async function Image() {
   const imgBuffer = await readFile(
-    path.join(process.cwd(), "public/assets/personal.jpeg")
+    path.join(process.cwd(), "public/assets/heroImage.png")
   );
   const base64 = imgBuffer.toString("base64");
-  const photoSrc = `data:image/jpeg;base64,${base64}`;
+  const photoSrc = `data:image/png;base64,${base64}`;
 
   return new ImageResponse(
     (
@@ -19,7 +19,7 @@ export default async function Image() {
         style={{
           width: 1200,
           height: 630,
-          background: "linear-gradient(135deg, #0a0a0a 0%, #111118 100%)",
+          background: "#0a0a0a",
           display: "flex",
           flexDirection: "row",
           position: "relative",
@@ -27,30 +27,14 @@ export default async function Image() {
           fontFamily: "sans-serif",
         }}
       >
-        {/* Subtle top gradient bar */}
+        {/* Dot grid — matches site background */}
         <div
           style={{
             position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: 3,
-            background:
-              "linear-gradient(to right, #a855f7, #6366f1, #3b82f6, #06b6d4, #10b981)",
-            display: "flex",
-          }}
-        />
-
-        {/* Left edge accent */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: 3,
-            height: "100%",
-            background:
-              "linear-gradient(to bottom, #a855f7, #6366f1, transparent)",
+            inset: 0,
+            backgroundImage:
+              "radial-gradient(circle, rgba(255,255,255,0.022) 1px, transparent 1px)",
+            backgroundSize: "44px 44px",
             display: "flex",
           }}
         />
@@ -62,44 +46,64 @@ export default async function Image() {
             flexDirection: "column",
             justifyContent: "space-between",
             flex: 1,
-            padding: "52px 48px 48px 68px",
+            padding: "52px 56px 52px 72px",
+            position: "relative",
           }}
         >
-          {/* Top row: logo + available badge */}
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-              <span style={{ color: "#888", fontSize: 26, fontWeight: 700 }}>[</span>
-              <span style={{ color: "#ffffff", fontSize: 22, fontWeight: 700, letterSpacing: "-0.5px" }}>AA</span>
-              <span style={{ color: "#888", fontSize: 26, fontWeight: 700 }}>]</span>
-            </div>
+          {/* Available for hire badge — matches hero exactly */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+            }}
+          >
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
                 gap: 8,
-                padding: "7px 16px",
+                padding: "8px 18px",
                 borderRadius: 100,
-                border: "1px solid rgba(74,222,128,0.4)",
-                background: "rgba(74,222,128,0.08)",
+                border: "1px solid rgba(74,222,128,0.35)",
+                background: "rgba(74,222,128,0.07)",
               }}
             >
-              <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#4ade80", display: "flex" }} />
-              <span style={{ color: "#4ade80", fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase" }}>
-                Available for Hire
+              {/* Pulsing dot */}
+              <div
+                style={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: "50%",
+                  background: "#4ade80",
+                  display: "flex",
+                }}
+              />
+              <span
+                style={{
+                  color: "#4ade80",
+                  fontSize: 13,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  fontFamily: "monospace",
+                }}
+              >
+                Available for hire
               </span>
             </div>
           </div>
 
-          {/* Name */}
+          {/* Name — exact same gradient as hero */}
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             <div
               style={{
-                fontSize: 82,
+                fontSize: 92,
                 fontWeight: 800,
-                lineHeight: 0.92,
-                letterSpacing: "-3px",
+                lineHeight: 0.9,
+                letterSpacing: "-4px",
                 display: "flex",
-                background: "linear-gradient(135deg, #ffffff 0%, #e2e8f0 40%, #94a3b8 100%)",
+                background:
+                  "linear-gradient(135deg, #ffffff 0%, #e2e8f0 30%, #94a3b8 65%, #64748b 100%)",
                 backgroundClip: "text",
                 color: "transparent",
               }}
@@ -108,12 +112,13 @@ export default async function Image() {
             </div>
             <div
               style={{
-                fontSize: 82,
+                fontSize: 92,
                 fontWeight: 800,
-                lineHeight: 0.92,
-                letterSpacing: "-3px",
+                lineHeight: 0.9,
+                letterSpacing: "-4px",
                 display: "flex",
-                background: "linear-gradient(135deg, #cbd5e1 0%, #94a3b8 50%, #64748b 100%)",
+                background:
+                  "linear-gradient(135deg, #cbd5e1 0%, #94a3b8 35%, #64748b 65%, #475569 100%)",
                 backgroundClip: "text",
                 color: "transparent",
               }}
@@ -121,72 +126,113 @@ export default async function Image() {
               Agnihotri
             </div>
 
-            <div style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 20 }}>
-              <div style={{ width: 32, height: 2, background: "#4b5563", display: "flex" }} />
-              <span style={{ color: "#6b7280", fontSize: 16, letterSpacing: "0.22em", textTransform: "uppercase" }}>
+            {/* Role line — matches hero "— Software Developer" */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 16,
+                marginTop: 22,
+              }}
+            >
+              <div
+                style={{ width: 36, height: 1, background: "rgba(255,255,255,0.25)", display: "flex" }}
+              />
+              <span
+                style={{
+                  color: "rgba(255,255,255,0.45)",
+                  fontSize: 15,
+                  letterSpacing: "0.28em",
+                  textTransform: "uppercase",
+                  fontFamily: "monospace",
+                }}
+              >
                 Software Developer
               </span>
             </div>
           </div>
 
-          {/* Bottom: tech stack + CTA */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-            {/* Tech pills */}
-            <div style={{ display: "flex", gap: 8 }}>
-              {["React", "Next.js", "TypeScript", "AI"].map((t) => (
-                <div
-                  key={t}
-                  style={{
-                    display: "flex",
-                    padding: "5px 13px",
-                    borderRadius: 100,
-                    border: "1px solid rgba(255,255,255,0.1)",
-                    background: "rgba(255,255,255,0.05)",
-                  }}
-                >
-                  <span style={{ color: "#9ca3af", fontSize: 12, fontFamily: "monospace" }}>{t}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* CTA button */}
-            <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          {/* Bottom: stats + CTA */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+            {/* Stats row — matches hero stats section */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 0,
+                paddingTop: 20,
+                borderTop: "1px solid rgba(255,255,255,0.08)",
+              }}
+            >
+              <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                <span style={{ color: "#ffffff", fontSize: 32, fontWeight: 700, letterSpacing: "-1px" }}>5+</span>
+                <span style={{ color: "rgba(255,255,255,0.4)", fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", fontFamily: "monospace" }}>Years Exp.</span>
+              </div>
+              <div style={{ width: 1, height: 40, background: "rgba(255,255,255,0.12)", margin: "0 28px", display: "flex" }} />
+              <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                <span style={{ color: "#ffffff", fontSize: 32, fontWeight: 700, letterSpacing: "-1px" }}>10+</span>
+                <span style={{ color: "rgba(255,255,255,0.4)", fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", fontFamily: "monospace" }}>Projects</span>
+              </div>
+              <div style={{ width: 1, height: 40, background: "rgba(255,255,255,0.12)", margin: "0 28px", display: "flex" }} />
+              {/* CTA */}
               <div
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  gap: 10,
-                  padding: "12px 24px",
+                  gap: 0,
+                  padding: "12px 28px",
                   borderRadius: 100,
                   background: "#ffffff",
                 }}
               >
-                <span style={{ color: "#0a0a0a", fontSize: 15, fontWeight: 700, letterSpacing: "-0.2px" }}>
-                  View Portfolio →
+                <span style={{ color: "#0a0a0a", fontSize: 14, fontWeight: 700, letterSpacing: "-0.2px" }}>
+                  View My Work →
                 </span>
               </div>
-              <span style={{ color: "#374151", fontSize: 13, fontFamily: "monospace" }}>
-                abhishek-agnihotri.vercel.app
-              </span>
             </div>
+
+            {/* URL */}
+            <span
+              style={{
+                color: "rgba(255,255,255,0.2)",
+                fontSize: 12,
+                fontFamily: "monospace",
+                letterSpacing: "0.06em",
+              }}
+            >
+              abhishek-agnihotri.vercel.app
+            </span>
           </div>
         </div>
 
         {/* ── Right: profile photo ── */}
-        <div style={{ display: "flex", width: 320, position: "relative", overflow: "hidden" }}>
+        <div
+          style={{
+            display: "flex",
+            width: 330,
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={photoSrc}
-            width={320}
+            width={330}
             height={630}
-            style={{ objectFit: "cover", objectPosition: "top center", display: "flex" }}
+            style={{
+              objectFit: "cover",
+              objectPosition: "top center",
+              display: "flex",
+              borderLeft: "1px solid rgba(255,255,255,0.08)",
+            }}
           />
-          {/* Left fade blend */}
+          {/* Left blend into dark bg */}
           <div
             style={{
               position: "absolute",
               inset: 0,
-              background: "linear-gradient(to right, #0a0a0a 0%, rgba(10,10,10,0.2) 40%, transparent 65%)",
+              background:
+                "linear-gradient(to right, #0a0a0a 0%, rgba(10,10,10,0.25) 38%, transparent 65%)",
               display: "flex",
             }}
           />
@@ -197,8 +243,36 @@ export default async function Image() {
               bottom: 0,
               left: 0,
               right: 0,
-              height: 120,
+              height: 100,
               background: "linear-gradient(to top, #0a0a0a, transparent)",
+              display: "flex",
+            }}
+          />
+
+          {/* Corner bracket — matches hero photo corner accents */}
+          <div
+            style={{
+              position: "absolute",
+              top: 24,
+              right: 24,
+              width: 36,
+              height: 36,
+              borderTop: "1.5px solid rgba(255,255,255,0.3)",
+              borderRight: "1.5px solid rgba(255,255,255,0.3)",
+              borderRadius: "0 4px 0 0",
+              display: "flex",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              bottom: 24,
+              left: 0,
+              width: 36,
+              height: 36,
+              borderBottom: "1.5px solid rgba(255,255,255,0.3)",
+              borderLeft: "1.5px solid rgba(255,255,255,0.3)",
+              borderRadius: "0 0 0 4px",
               display: "flex",
             }}
           />

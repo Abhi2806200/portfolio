@@ -64,7 +64,7 @@ export default function PageLoader() {
           >
             <span
               className="font-mono text-[11px] tracking-[0.55em] uppercase"
-              style={{ color: "rgba(255,255,255,0.2)" }}
+              style={{ color: "rgba(255,255,255,0.55)" }}
             >
               [ AA ]
             </span>
@@ -107,7 +107,7 @@ export default function PageLoader() {
                 className="font-mono font-light self-start mt-3 ml-1"
                 style={{
                   fontSize: "clamp(1.1rem, 3.5vw, 2.2rem)",
-                  color: "rgba(255,255,255,0.18)",
+                  color: "rgba(255,255,255,0.4)",
                   letterSpacing: "0",
                 }}
               >
@@ -126,23 +126,23 @@ export default function PageLoader() {
                 className="w-full h-px"
                 style={{
                   background:
-                    "linear-gradient(to right, transparent, rgba(255,255,255,0.14) 30%, rgba(255,255,255,0.14) 70%, transparent)",
+                    "linear-gradient(to right, transparent, rgba(255,255,255,0.3) 30%, rgba(255,255,255,0.3) 70%, transparent)",
                 }}
               />
               <div className="flex items-center gap-4">
                 <span
-                  className="font-mono text-[9px] uppercase tracking-[0.5em]"
-                  style={{ color: "rgba(255,255,255,0.22)" }}
+                  className="font-mono text-[11px] uppercase tracking-[0.45em]"
+                  style={{ color: "rgba(255,255,255,0.5)" }}
                 >
                   Abhishek
                 </span>
                 <span
                   className="w-[3px] h-[3px] rounded-full"
-                  style={{ background: "rgba(255,255,255,0.2)" }}
+                  style={{ background: "rgba(255,255,255,0.45)" }}
                 />
                 <span
-                  className="font-mono text-[9px] uppercase tracking-[0.5em]"
-                  style={{ color: "rgba(255,255,255,0.22)" }}
+                  className="font-mono text-[11px] uppercase tracking-[0.45em]"
+                  style={{ color: "rgba(255,255,255,0.5)" }}
                 >
                   Agnihotri
                 </span>
@@ -191,36 +191,31 @@ export default function PageLoader() {
           </motion.div>
 
           {/* Corner accents */}
-          {([
-            { top: 28, left: 32,  borderTop: true,    borderLeft: true  },
-            { top: 28, right: 32, borderTop: true,    borderRight: true },
-            { bottom: 28, left: 32,  borderBottom: true, borderLeft: true  },
-            { bottom: 28, right: 32, borderBottom: true, borderRight: true },
-          ] as const).map((pos, i) => (
+          {(
+            [
+              { top: 28,    left: 32,  radius: "3px 0 0 0", bT: 1, bB: 0, bL: 1, bR: 0 },
+              { top: 28,    right: 32, radius: "0 3px 0 0", bT: 1, bB: 0, bL: 0, bR: 1 },
+              { bottom: 28, left: 32,  radius: "0 0 0 3px", bT: 0, bB: 1, bL: 1, bR: 0 },
+              { bottom: 28, right: 32, radius: "0 0 3px 0", bT: 0, bB: 1, bL: 0, bR: 1 },
+            ] as Array<{
+              top?: number; bottom?: number; left?: number; right?: number;
+              radius: string; bT: number; bB: number; bL: number; bR: number;
+            }>
+          ).map(({ top, bottom, left, right, radius, bT, bB, bL, bR }, i) => (
             <motion.div
               key={i}
               className="absolute pointer-events-none"
               style={{
-                top:    "top"    in pos ? pos.top    : undefined,
-                bottom: "bottom" in pos ? pos.bottom : undefined,
-                left:   "left"   in pos ? pos.left   : undefined,
-                right:  "right"  in pos ? pos.right  : undefined,
+                top, bottom, left, right,
                 width: 16,
                 height: 16,
-                borderTopWidth:    pos.borderTop    ? "1px" : 0,
-                borderBottomWidth: pos.borderBottom ? "1px" : 0,
-                borderLeftWidth:   pos.borderLeft   ? "1px" : 0,
-                borderRightWidth:  pos.borderRight  ? "1px" : 0,
+                borderTopWidth:    bT ? "1px" : 0,
+                borderBottomWidth: bB ? "1px" : 0,
+                borderLeftWidth:   bL ? "1px" : 0,
+                borderRightWidth:  bR ? "1px" : 0,
                 borderStyle: "solid",
-                borderColor: "rgba(255,255,255,0.12)",
-                borderRadius:
-                  pos.borderTop && pos.borderLeft
-                    ? "3px 0 0 0"
-                    : pos.borderTop && pos.borderRight
-                    ? "0 3px 0 0"
-                    : pos.borderBottom && pos.borderLeft
-                    ? "0 0 0 3px"
-                    : "0 0 3px 0",
+                borderColor: "rgba(255,255,255,0.28)",
+                borderRadius: radius,
               }}
               initial={{ opacity: 0 }}
               animate={done ? { opacity: 0 } : { opacity: 1 }}

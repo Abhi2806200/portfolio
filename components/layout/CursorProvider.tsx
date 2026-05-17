@@ -9,8 +9,8 @@ export default function CursorProvider({ children }: { children: ReactNode }) {
   const [isPointer, setIsPointer] = useState(false);
 
   useEffect(() => {
-    // Only enable custom cursor on true pointer (mouse) devices
-    const hasPointer = window.matchMedia("(pointer: fine)").matches;
+    // Only enable on true mouse/trackpad — excludes touch-only and stylus-only devices
+    const hasPointer = window.matchMedia("(pointer: fine) and (hover: hover)").matches;
     if (!hasPointer) return;
 
     setIsPointer(true);

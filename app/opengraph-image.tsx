@@ -4,14 +4,14 @@ import path from "node:path";
 
 export const alt = "Abhishek Agnihotri — Software Developer | React & Next.js";
 export const size = { width: 1200, height: 630 };
-export const contentType = "image/jpeg";
+export const contentType = "image/png";
 
 export default async function Image() {
   const imgBuffer = await readFile(
-    path.join(process.cwd(), "public/assets/personal.jpeg")
+    path.join(process.cwd(), "public/assets/heroImage.png")
   );
   const base64 = imgBuffer.toString("base64");
-  const photoSrc = `data:image/jpeg;base64,${base64}`;
+  const photoSrc = `data:image/png;base64,${base64}`;
 
   return new ImageResponse(
     (
@@ -223,6 +223,7 @@ export default async function Image() {
               objectFit: "cover",
               objectPosition: "top center",
               display: "flex",
+              borderLeft: "1px solid rgba(255,255,255,0.08)",
             }}
           />
           {/* Left blend into dark bg */}

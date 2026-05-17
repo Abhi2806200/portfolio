@@ -191,17 +191,20 @@ export default function PageLoader() {
           </motion.div>
 
           {/* Corner accents */}
-          {[
-            { top: 28, left: 32, borderTop: true, borderLeft: true },
-            { top: 28, right: 32, borderTop: true, borderRight: true },
-            { bottom: 28, left: 32, borderBottom: true, borderLeft: true },
+          {([
+            { top: 28, left: 32,  borderTop: true,    borderLeft: true  },
+            { top: 28, right: 32, borderTop: true,    borderRight: true },
+            { bottom: 28, left: 32,  borderBottom: true, borderLeft: true  },
             { bottom: 28, right: 32, borderBottom: true, borderRight: true },
-          ].map((pos, i) => (
+          ] as const).map((pos, i) => (
             <motion.div
               key={i}
               className="absolute pointer-events-none"
               style={{
-                ...pos,
+                top:    "top"    in pos ? pos.top    : undefined,
+                bottom: "bottom" in pos ? pos.bottom : undefined,
+                left:   "left"   in pos ? pos.left   : undefined,
+                right:  "right"  in pos ? pos.right  : undefined,
                 width: 16,
                 height: 16,
                 borderTopWidth:    pos.borderTop    ? "1px" : 0,

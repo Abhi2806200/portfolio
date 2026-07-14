@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import BackgroundWrapper from "@/components/ui/BackgroundWrapper";
 import PageLoader from "@/components/ui/PageLoader";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -166,6 +167,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-background text-text-primary font-body antialiased">
         <PageLoader />
+        <ScrollProgressBar />
         <BackgroundWrapper />
         <CursorProvider>
           <div className="relative z-10">

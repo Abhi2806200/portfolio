@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { FiArrowRight, FiGithub, FiLinkedin } from "react-icons/fi";
 import { socialLinks, siteConfig } from "@/lib/data";
 import { AnimateLines, Line } from "@/components/ui/AnimateLines";
@@ -10,9 +11,29 @@ import { SplitText } from "@/components/ui/SplitText";
 export default function Hero() {
   const years = new Date().getFullYear() - siteConfig.careerStartYear;
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [8, -8]), { stiffness: 80, damping: 20 });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-8, 8]), { stiffness: 80, damping: 20 });
+
+  function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
+    const rect = sectionRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+  }
+  function handleMouseLeave() {
+    mouseX.set(0);
+    mouseY.set(0);
+  }
+
   return (
     <section
       id="hero"
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className="relative min-h-screen flex items-center bg-transparent pt-20 pb-16"
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
@@ -38,24 +59,12 @@ export default function Hero() {
             <Line>
               <h1 className="font-display font-bold leading-[1.05] tracking-tight mb-4">
                 <span
-                  className="block text-[clamp(2.8rem,7vw,5.5rem)]"
-                  style={{
-                    background: "linear-gradient(135deg, #ffffff 0%, #e2e8f0 30%, #94a3b8 65%, #64748b 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
+                  className="block text-[clamp(2.8rem,7vw,5.5rem)] shimmer-name"
                 >
                   Abhishek
                 </span>
                 <span
-                  className="block text-[clamp(2.8rem,7vw,5.5rem)]"
-                  style={{
-                    background: "linear-gradient(135deg, #cbd5e1 0%, #94a3b8 35%, #64748b 65%, #475569 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
+                  className="block text-[clamp(2.8rem,7vw,5.5rem)] shimmer-name-dim"
                 >
                   Agnihotri
                 </span>
@@ -130,8 +139,14 @@ export default function Hero() {
             whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             viewport={{ once: false, amount: 0.05 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] as const }}
+            style={{ perspective: 800 }}
           >
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-[420px] lg:h-[480px] rounded-2xl overflow-hidden border border-white/12 shadow-2xl">
+            <motion.div
+              animate={{ y: [0, -14, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+              className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-[420px] lg:h-[480px] rounded-2xl overflow-hidden border border-white/12 shadow-2xl"
+            >
               <Image
                 src="/assets/heroImage.png"
                 alt="Abhishek Agnihotri"
@@ -144,7 +159,18 @@ export default function Hero() {
                 className="absolute inset-0 pointer-events-none"
                 style={{ background: "linear-gradient(to top, rgba(10,10,10,0.5) 0%, transparent 50%)" }}
               />
-            </div>
+              {/* Glare overlay */}
+              <motion.div
+                className="absolute inset-0 pointer-events-none rounded-2xl"
+                style={{
+                  background: useTransform(
+                    [mouseX, mouseY],
+                    ([x, y]) =>
+                      `radial-gradient(circle at ${((x as number) + 0.5) * 100}% ${((y as number) + 0.5) * 100}%, rgba(255,255,255,0.10) 0%, transparent 60%)`
+                  ),
+                }}
+              />
+            </motion.div>
           </motion.div>
 
         </div>

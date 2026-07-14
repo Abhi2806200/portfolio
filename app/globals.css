@@ -92,6 +92,58 @@ body::after {
 /* ── Clip reveal utility ── */
 .clip-container { overflow: hidden; }
 
+/* ── Name shimmer ── */
+.shimmer-name {
+  background: linear-gradient(
+    110deg,
+    #ffffff 0%,
+    #e2e8f0 20%,
+    #ffffff 35%,
+    #c8d8f0 50%,
+    #ffffff 65%,
+    #e2e8f0 80%,
+    #94a3b8 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: name-shimmer 5s linear infinite;
+}
+
+.shimmer-name-dim {
+  background: linear-gradient(
+    110deg,
+    #cbd5e1 0%,
+    #94a3b8 20%,
+    #e2e8f0 35%,
+    #64748b 50%,
+    #cbd5e1 65%,
+    #94a3b8 80%,
+    #475569 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: name-shimmer 5s linear infinite;
+  animation-delay: -2.5s;
+}
+
+@keyframes name-shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* ── Card tilt transition ── */
+.tilt-card {
+  transition: transform 0.12s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+.tilt-card:not(:hover) {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
+}
+
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

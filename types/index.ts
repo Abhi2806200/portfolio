@@ -7,6 +7,7 @@ export interface Project {
   repoUrl: string | null;
   featured: boolean;
   gradient: string;
+  image?: string;
 }
 
 export interface Experience {

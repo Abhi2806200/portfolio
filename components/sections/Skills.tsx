@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import {
   SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss,
   SiRedux, SiNodedotjs, SiGraphql, SiMongodb, SiExpress,
-  SiHtml5, SiOpenai, SiVercel,
+  SiHtml5, SiVercel,
 } from "react-icons/si";
-import { TbBrain, TbPrompt, TbCode } from "react-icons/tb";
+import { TbBrain, TbPrompt, TbCode, TbSparkles } from "react-icons/tb";
 import { skills } from "@/lib/data";
 import { AnimateLines, Line } from "@/components/ui/AnimateLines";
 
@@ -24,7 +24,7 @@ const ICON_MAP: Record<string, React.ReactNode> = {
   "Express":            <SiExpress />,
   "HTML5":              <SiHtml5 />,
   "CSS3":               <TbCode />,
-  "OpenAI API":         <SiOpenai />,
+  "OpenAI API":         <TbSparkles />,
   "AI Integration":     <TbBrain />,
   "Prompt Engineering": <TbPrompt />,
   "Vercel AI SDK":      <SiVercel />,

@@ -1,13 +1,56 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {
+  SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss,
+  SiRedux, SiNodedotjs, SiGraphql, SiMongodb, SiExpress,
+  SiHtml5, SiOpenai, SiVercel,
+} from "react-icons/si";
+import { TbBrain, TbPrompt, TbCode } from "react-icons/tb";
 import { skills } from "@/lib/data";
-import { AnimateLines, Line, line } from "@/components/ui/AnimateLines";
+import { AnimateLines, Line } from "@/components/ui/AnimateLines";
+
+const ICON_MAP: Record<string, React.ReactNode> = {
+  "React":              <SiReact />,
+  "Next.js":            <SiNextdotjs />,
+  "TypeScript":         <SiTypescript />,
+  "JavaScript":         <SiJavascript />,
+  "Tailwind CSS":       <SiTailwindcss />,
+  "Redux":              <SiRedux />,
+  "Node.js":            <SiNodedotjs />,
+  "GraphQL":            <SiGraphql />,
+  "MongoDB":            <SiMongodb />,
+  "Express":            <SiExpress />,
+  "HTML5":              <SiHtml5 />,
+  "CSS3":               <TbCode />,
+  "OpenAI API":         <SiOpenai />,
+  "AI Integration":     <TbBrain />,
+  "Prompt Engineering": <TbPrompt />,
+  "Vercel AI SDK":      <SiVercel />,
+};
 
 const CATEGORIES = [
-  { key: "frontend" as const, label: "Frontend",   description: "User interfaces & web experiences" },
-  { key: "backend"  as const, label: "Backend",    description: "Server-side & databases" },
-  { key: "ai"       as const, label: "AI & Tools", description: "Artificial intelligence & automation" },
+  {
+    key: "frontend" as const,
+    label: "Frontend",
+    description: "User interfaces & web experiences",
+    accent: "from-blue-500 via-sky-400 to-cyan-400",
+    glow: "rgba(56,189,248,0.15)",
+  },
+  {
+    key: "backend" as const,
+    label: "Backend",
+    description: "Server-side & databases",
+    accent: "from-emerald-400 via-green-400 to-lime-400",
+    glow: "rgba(52,211,153,0.15)",
+  },
+  {
+    key: "ai" as const,
+    label: "AI & Tools",
+    description: "Artificial intelligence & automation",
+    accent: "from-violet-500 via-purple-400 to-fuchsia-400",
+    glow: "rgba(167,139,250,0.15)",
+  },
 ];
 
 export default function Skills() {
@@ -26,25 +69,35 @@ export default function Skills() {
             const catSkills = skills.filter((s) => s.category === cat.key);
             return (
               <Line key={cat.key}>
-                <div className="bg-white/3 border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300 h-full">
-                  <p className="font-heading font-bold text-white text-lg mb-1">{cat.label}</p>
-                  <p className="text-xs font-mono text-white/50 mb-5">{cat.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {catSkills.map((skill, si) => (
-                      <motion.span
-                        key={skill.id}
-                        variants={line}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={{ once: false }}
-                        transition={{ duration: 0.3, delay: si * 0.05 }}
-                        className="px-3 py-1.5 rounded-full bg-white/5 border border-white/12 text-sm font-mono text-white/75 hover:text-white hover:border-white/30 hover:bg-white/8 transition-all duration-200 cursor-default"
-                      >
-                        {skill.name}
-                      </motion.span>
-                    ))}
+                <motion.div
+                  className="flex flex-col bg-white/3 border border-white/10 rounded-2xl overflow-hidden hover:border-white/22 transition-all duration-300 h-full"
+                  whileHover={{ boxShadow: `0 8px 40px ${cat.glow}`, y: -4 }}
+                >
+                  <div className={`h-[3px] w-full bg-gradient-to-r ${cat.accent}`} />
+                  <div className="p-6">
+                    <p className="font-heading font-bold text-white text-lg mb-1">{cat.label}</p>
+                    <p className="text-xs font-mono text-white/50 mb-5">{cat.description}</p>
+                    <div className="flex flex-col gap-2">
+                      {catSkills.map((skill, si) => (
+                        <motion.div
+                          key={skill.id}
+                          initial={{ opacity: 0, x: -8 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.3, delay: si * 0.06 }}
+                          className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-white/5 border border-white/8 hover:border-white/20 hover:bg-white/8 transition-all duration-200 group/skill"
+                        >
+                          <span className="text-base text-white/50 group-hover/skill:text-white/90 transition-colors duration-200 shrink-0">
+                            {ICON_MAP[skill.name] ?? null}
+                          </span>
+                          <span className="text-sm font-mono text-white/70 group-hover/skill:text-white transition-colors duration-200">
+                            {skill.name}
+                          </span>
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                </motion.div>
               </Line>
             );
           })}

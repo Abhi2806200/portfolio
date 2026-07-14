@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { FiExternalLink } from "react-icons/fi";
 import { projects } from "@/lib/data";
 import { SplitText } from "@/components/ui/SplitText";
@@ -36,6 +37,37 @@ export default function Projects() {
                   whileHover={{ boxShadow: `0 8px 40px ${accent.glow}`, y: -4 }}
                 >
                   <div className={`h-[3px] w-full bg-gradient-to-r ${accent.bar}`} />
+
+                  {/* Project thumbnail */}
+                  <div className="relative w-full h-44 overflow-hidden border-b border-white/8">
+                    {/* Mock browser chrome */}
+                    <div className="absolute top-0 left-0 right-0 z-10 flex items-center gap-1.5 px-3 py-2 bg-black/60 backdrop-blur-sm">
+                      <span className="w-2 h-2 rounded-full bg-red-500/70" />
+                      <span className="w-2 h-2 rounded-full bg-yellow-500/70" />
+                      <span className="w-2 h-2 rounded-full bg-green-500/70" />
+                    </div>
+                    {project.image ? (
+                      <>
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                      </>
+                    ) : (
+                      <div className={`w-full h-full bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
+                        <div className="flex flex-col items-center gap-3 opacity-30">
+                          <div className="w-16 h-1.5 rounded-full bg-white/60" />
+                          <div className="w-10 h-1.5 rounded-full bg-white/40" />
+                          <div className="w-12 h-1.5 rounded-full bg-white/50" />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
                   <div className="flex flex-col flex-1 p-6 gap-4">
                     <div className="flex items-start justify-between gap-3">
                       <h3 className="font-heading font-bold text-xl text-white leading-tight">{project.title}</h3>

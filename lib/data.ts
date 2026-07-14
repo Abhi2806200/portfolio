@@ -67,17 +67,7 @@ export const projects: Project[] = [
     repoUrl: null,
     featured: true,
     gradient: "from-orange-950 via-red-950 to-amber-950",
-  },
-  {
-    id: "2",
-    title: "Raging Bull Trading Bot",
-    description:
-      "A Telegram-based algorithmic trading bot delivering real-time market analysis and automated signal notifications to active traders.",
-    tech: ["Node.js", "Telegram API", "React"],
-    liveUrl: "https://t.me/raging_bull_ant_dev_bot?start=",
-    repoUrl: null,
-    featured: false,
-    gradient: "from-yellow-950 via-orange-950 to-red-950",
+    image: "/assets/portfolio/digitalram.png",
   },
   {
     id: "3",
@@ -89,6 +79,7 @@ export const projects: Project[] = [
     repoUrl: null,
     featured: false,
     gradient: "from-blue-950 via-cyan-950 to-teal-950",
+    image: "/assets/portfolio/nestedform.png",
   },
   {
     id: "4",
@@ -100,6 +91,7 @@ export const projects: Project[] = [
     repoUrl: null,
     featured: false,
     gradient: "from-purple-950 via-violet-950 to-pink-950",
+    image: "/assets/portfolio/three.png",
   },
 ];
 
